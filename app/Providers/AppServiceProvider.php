@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace borg\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

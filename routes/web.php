@@ -10,7 +10,10 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Route::get('/', function () {
-    return view('dashboard.index');
+Route::get('/', function (){
+    return redirect('login');
 });
+
+Route::get('/dashboard', 'DashboardController@index');
+
+Auth::routes();

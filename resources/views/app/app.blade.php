@@ -83,7 +83,7 @@
     <!-- BEGIN FOOTER -->
     <div class="page-footer">
         <div class="page-footer-inner">&copy; {{ date('Y') }}  Todos os direitos reservados a
-            <a target="_blank" href="http://borg.net.br">BORG</a> &nbsp;|&nbsp;Desenvolvido por:
+            <a href="http://borg.net.br">BORG</a> &nbsp;|&nbsp;Desenvolvido por:
             <a href="mailto:falecom@pedrolazari.com" title="Sistema desenvolvido por Pedro Lazari">Pedro Lazari</a>
         </div>
         <div class="scroll-to-top">
@@ -121,6 +121,11 @@
 <script src="{{ URL::asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('assets/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+<script>
+    $('#sair').click(function () {
+        $('#logout').submit();
+    });
+</script>
 </body>
 
 </html>

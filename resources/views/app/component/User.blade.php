@@ -13,10 +13,14 @@
         </li>
         <li class="divider"> </li>
         <li>
-            <a href="page_user_login_1.html">
+            <a id="sair">
                 <i class="icon-key"></i> Sair </a>
         </li>
     </ul>
 </li>
 <!-- END USER LOGIN DROPDOWN -->
+
+<form action="{{ url('logout') }}" method="post" id="logout">
+    {{ csrf_field() }}
+</form>
 

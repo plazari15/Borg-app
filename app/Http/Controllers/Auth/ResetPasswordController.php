@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace borg\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use borg\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
@@ -29,4 +29,6 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    protected $redirectTo = '/dashboard';
 }
