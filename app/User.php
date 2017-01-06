@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * Relation With Account
+     */
+    public function account(){
+        return $this->hasOne(Account::class);
+    }
 }
