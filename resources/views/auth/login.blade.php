@@ -133,7 +133,7 @@
             <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Senha" name="password" /> </div>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="password_confirmation" /> </div>
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Confirme sua senha" name="password_confirmation" /> </div>
         {{--<div class="form-group margin-top-20 margin-bottom-20">--}}
             {{--<label class="mt-checkbox mt-checkbox-outline">--}}
                 {{--<input type="checkbox" name="tnc" /> I agree to the--}}
