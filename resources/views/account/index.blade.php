@@ -63,17 +63,17 @@
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('cnpj', 'CNPJ') }}
-                                                    {{ Form::text('cnpj', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('cnpj', $account->cnpj, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('social', 'Razão Social') }}
-                                                    {{ Form::text('social', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('social', $account->social, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('website', 'Site') }}
-                                                    {{ Form::text('website', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('website', $account->website, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
@@ -84,42 +84,42 @@
                                                 <h4>Endereço</h4>
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('cep', 'CEP') }}
-                                                    {{ Form::text('cep', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('cep', $account->cep, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('address', 'Endereço') }}
-                                                    {{ Form::text('address', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('address', $account->address, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-4">
                                                     {{ Form::label('number', 'Número') }}
-                                                    {{ Form::text('number', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('number', $account->number, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-2">
                                                     {{ Form::label('complement', 'Comlemento') }}
-                                                    {{ Form::text('complement', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('complement', $account->complement, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('district', 'Bairro') }}
-                                                    {{ Form::text('district', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('district', $account->district, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('city', 'Cidade') }}
-                                                    {{ Form::text('city', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('city', $account->city, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('state', 'Estado') }}
-                                                    {{ Form::text('state', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('state', $account->state, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('country', 'País') }}
-                                                    {{ Form::text('country', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('country', $account->country, ['class' => 'form-control']) }}
                                                 </div>
                                         </div>
                                     </div>
