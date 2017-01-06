@@ -24,6 +24,7 @@ class Account extends Model
         'certificate',
     ];
 
+
     public function user(){
         return $this->belongsTo(User::class);
     }

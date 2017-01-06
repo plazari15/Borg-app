@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AccountRequest extends FormRequest
 {
+    protected $rules = [];
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -23,10 +24,11 @@ class AccountRequest extends FormRequest
      */
     public function rules()
     {
+//        $this->rules['cnpj'] = ['required', 'max:20', 'unique:accounts'];
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'cnpj' => 'required|max:20|unique:accounts',
+            'cnpj' => 'required|max:20|unique:accounts|',
             'social'  => 'required',
             'website'  => 'url',
             'occupation'  => 'required|numeric',
@@ -38,8 +40,8 @@ class AccountRequest extends FormRequest
             'city'  => 'required',
             'state'  => 'required',
             'country'  => 'required',
-            'logomarca'  => 'required|image',
-            'certificado'  => 'required|file',
+//            'logomarca'  => 'required|image',
+//            'certificado'  => 'required|file',
         ];
     }
 }
