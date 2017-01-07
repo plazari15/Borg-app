@@ -1,7 +1,7 @@
 var FormInputMask = function () {
     
     var handleInputMasks = function () {
-        
+
 
         $("#mask_date").inputmask("d/m/y", {
             autoUnmask: true
@@ -12,11 +12,11 @@ var FormInputMask = function () {
         $("#mask_date2").inputmask("d/m/y", {
             "placeholder": "dd/mm/yyyy"
         }); //multi-char placeholder
-        $("#mask_phone").inputmask("mask", {
-            "mask": "(999) 999-9999"
+        $("#mask_telphone").inputmask({
+            "mask": "(99) 99999-9999"
         }); //specifying fn & options
-        $("#mask_tin").inputmask({
-            "mask": "99-9999999",
+        $("#mask_cep").inputmask({
+            "mask": "99999-999",
             placeholder: "" // remove underscores from the input mask
         }); //specifying options only
         $("#mask_number").inputmask({

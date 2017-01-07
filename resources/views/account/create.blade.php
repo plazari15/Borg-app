@@ -28,7 +28,6 @@
             </h1>
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
-
             <!-- Formulário -->
             <div class="row">
                 <div class="col-md-12">
@@ -42,9 +41,9 @@
                         </div>
                     @endif
 
-                        @if(Session::has('success'))
-                            <div class="alert alert-success green-jungle"><span class="glyphicon glyphicon-ok"></span><em> {!! session('success') !!}</em></div>
-                        @endif
+                    @if(Session::has('flash_message'))
+                        <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+                    @endif
                         <div class="portlet-body">
                             <div class="m-grid">
                                     <div class="m-grid-col m-grid-col-md-8 m-grid-col-middle">
@@ -70,88 +69,77 @@
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('social', 'Razão Social') }}
-                                                    {{ Form::text('social', $account->social  ?? '', ['class' => 'form-control']) }}
+                                                    {{ Form::text('social', null, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('website', 'Site') }}
-                                                    {{ Form::text('website', $account->website  ?? '', ['class' => 'form-control']) }}
+                                                    {{ Form::text('website', null, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('tel', 'Telefone') }}
-                                                    {{ Form::text('phone', $account->phone, ['class' => 'form-control', 'id' => 'mask_telphone']) }}
+                                                    {{ Form::text('phone', null, ['class' => 'form-control', 'id' => 'mask_telphone']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('occupation', 'Área de Atuação') }}
-                                                    {{ Form::select('occupation', ['1' => 'Fornecedor', '2' => 'Produtor',  '3' => 'Vendedor'], $account->occupation,  ['class' => 'form-control']) }}
+                                                    {{ Form::select('occupation', ['1' => 'Fornecedor', '2' => 'Produtor',  '3' => 'Vendedor'], null,  ['class' => 'form-control']) }}
                                                 </div>
 
-                                            <h4>Endereço</h4>
-                                            <div class="form-group col-md-12">
-                                                {{ Form::label('cep', 'CEP') }}
-                                                {{ Form::text('cep', $account->cep, ['class' => 'form-control', 'id' => 'cep']) }}
-                                            </div>
+                                                <h4>Endereço</h4>
+                                                <div class="form-group col-md-12">
+                                                    {{ Form::label('cep', 'CEP') }}
+                                                    {{ Form::text('cep', null, ['class' => 'form-control', 'id' => 'cep']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-6">
-                                                {{ Form::label('address', 'Endereço') }}
-                                                {{ Form::text('address', $account->address, ['class' => 'form-control', 'id' => 'endereco']) }}
-                                            </div>
+                                                <div class="form-group col-md-6">
+                                                    {{ Form::label('address', 'Endereço') }}
+                                                    {{ Form::text('address', null, ['class' => 'form-control', 'id' => 'endereco']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-4">
-                                                {{ Form::label('number', 'Número') }}
-                                                {{ Form::text('number', $account->number, ['class' => 'form-control']) }}
-                                            </div>
+                                                <div class="form-group col-md-4">
+                                                    {{ Form::label('number', 'Número') }}
+                                                    {{ Form::text('number', null, ['class' => 'form-control']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-2">
-                                                {{ Form::label('complement', 'Comlemento') }}
-                                                {{ Form::text('complement', $account->complement, ['class' => 'form-control']) }}
-                                            </div>
+                                                <div class="form-group col-md-2">
+                                                    {{ Form::label('complement', 'Comlemento') }}
+                                                    {{ Form::text('complement', null, ['class' => 'form-control']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-3">
-                                                {{ Form::label('district', 'Bairro') }}
-                                                {{ Form::text('district', $account->district, ['class' => 'form-control', 'id' => 'bairro']) }}
-                                            </div>
+                                                <div class="form-group col-md-3">
+                                                    {{ Form::label('district', 'Bairro') }}
+                                                    {{ Form::text('district', null, ['class' => 'form-control', 'id' => 'bairro']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-3">
-                                                {{ Form::label('city', 'Cidade') }}
-                                                {{ Form::text('city', $account->city, ['class' => 'form-control', 'id' => 'cidade']) }}
-                                            </div>
+                                                <div class="form-group col-md-3">
+                                                    {{ Form::label('city', 'Cidade') }}
+                                                    {{ Form::text('city', null, ['class' => 'form-control', 'id' => 'cidade']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-3">
-                                                {{ Form::label('state', 'Estado') }}
-                                                {{ Form::text('state', $account->state, ['class' => 'form-control', 'id' => 'uf']) }}
-                                            </div>
+                                                <div class="form-group col-md-3">
+                                                    {{ Form::label('state', 'Estado') }}
+                                                    {{ Form::text('state', null, ['class' => 'form-control', 'id' => 'uf']) }}
+                                                </div>
 
-                                            <div class="form-group col-md-3">
-                                                {{ Form::label('country', 'País') }}
-                                                {{ Form::text('country', $account->country, ['class' => 'form-control', 'id' => 'pais']) }}
-                                            </div>
+                                                <div class="form-group col-md-3">
+                                                    {{ Form::label('country', 'País') }}
+                                                    {{ Form::text('country', null, ['class' => 'form-control', 'id' => 'pais']) }}
+                                                </div>
                                         </div>
                                     </div>
                                     <div class="m-grid-col m-grid-col-md-4 ">
                                         <h3>Arquivos referentes a sua empresa</h3>
 
                                         <div class="form-group col-md-12">
-                                            <div class="col-md-6">
-                                                @if(!empty($account->logo))
-                                                    <img src="{{ url('uploads/'.$account->logo ?? '') }}" alt="{{ $user->name }}" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
-                                                @else
-                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NCIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0NyIgeT0iOTAiIHN0eWxlPSJmaWxsOiNhYWE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MTJweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj45NHgxODA8L3RleHQ+PC9zdmc+" alt="100%x180" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
-                                                @endif
-                                            </div>
-                                            <div class="col-md-6">
                                                 {{ Form::label('logomarca', 'Logo (.jpg, .png, .gif)') }}
                                                 {{ Form::file('logomarca',  ['class' => 'form-control']) }}
-                                            </div>
                                         </div>
 
                                         <div class="form-group col-md-12">
-                                            <div class="col-md-8">
                                                 {{ Form::label('certificado', 'Certificado (.pdf, .jpg)') }}
                                                 {{ Form::file('certificado',  ['class' => 'form-control']) }}
-                                            </div>
                                         </div>
 
                                     </div>
@@ -186,7 +174,6 @@
     </div>
     <!-- END CONTENT -->
 @endsection
-
 @section('page-scripts')
     <script src="{{ URL::asset('assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/global/plugins/jquery.input-ip-address-control-1.0.min.js') }}" type="text/javascript"></script>

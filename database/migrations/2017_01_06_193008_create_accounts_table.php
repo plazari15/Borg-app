@@ -22,6 +22,7 @@ class CreateAccountsTable extends Migration
             $table->string('website')->nullable();
             $table->integer('occupation')->nullable();
             $table->string('cep')->nullable();
+            $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('number')->nullable();
             $table->string('complement')->nullable();

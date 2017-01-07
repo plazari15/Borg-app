@@ -22,6 +22,7 @@ class Account extends Model
         'country',
         'logo',
         'certificate',
+        'phone'
     ];
 
 

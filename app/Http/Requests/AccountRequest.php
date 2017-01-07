@@ -2,7 +2,9 @@
 
 namespace borg\Http\Requests;
 
+use borg\Account;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AccountRequest extends FormRequest
 {
@@ -24,24 +26,34 @@ class AccountRequest extends FormRequest
      */
     public function rules()
     {
-//        $this->rules['cnpj'] = ['required', 'max:20', 'unique:accounts'];
+        $account = Account::where('user_id', Auth::user()->id)->first();
+        $this->rules['name'] = ['required'];
+        $this->rules['email'] = ['required', 'email'];
+        $this->rules['social'] = ['required'];
+        $this->rules['website'] = ['url'];
+        $this->rules['phone'] = ['required'];
+        $this->rules['occupation'] = ['required', 'numeric'];
+        $this->rules['cep'] = ['required'];
+        $this->rules['address'] = ['required'];
+        $this->rules['number'] = ['required'];
+        $this->rules['district'] = ['required'];
+        $this->rules['city'] = ['required'];
+        $this->rules['state'] = ['required'];
+        $this->rules['country'] = ['required'];
+
+        if(empty($account->cnpj) OR $account->cnpj != $this->cnpj){
+            $this->rules['cnpj'] = ['required', 'max:20', 'unique:accounts'];
+        }else{
+            $this->rules['cnpj'] = ['required', 'max:20'];
+        }
+
+        return $this->rules;
+    }
+
+    public function messages()
+    {
         return [
-            'name' => 'required',
-            'email' => 'required|email',
-            'cnpj' => 'required|max:20|',
-            'social'  => 'required',
-            'website'  => 'url',
-            'occupation'  => 'required|numeric',
-            'cep'  => 'required',
-            'address'  => 'required',
-            'number'  => 'required',
-            'complement'  => 'required',
-            'district'  => 'required',
-            'city'  => 'required',
-            'state'  => 'required',
-            'country'  => 'required',
-//            'logomarca'  => 'required|image',
-//            'certificado'  => 'required|file',
+            'social.required' => 'O campo razão social é obrigatório'
         ];
     }
 }

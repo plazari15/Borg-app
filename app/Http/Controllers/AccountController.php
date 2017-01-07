@@ -23,7 +23,12 @@ class AccountController extends Controller
     public function index(){
         $account = Account::where('user_id', Auth::user()->id)->with('user')->first();
         $user = Auth::user();
-        return view('account.index', compact('account', 'user'));
+        if(!empty($account)){
+            return view('account.index', compact('account', 'user'));
+        }
+
+        return view('account.create', compact('account', 'user'));
+
     }
 
     public function saveData(AccountRequest $request)
