@@ -127,13 +127,24 @@
                                         <h3>Arquivos referentes a sua empresa</h3>
 
                                         <div class="form-group col-md-12">
-                                            {{ Form::label('logomarca', 'Logo (.jpg, .png, .gif)') }}
-                                            {{ Form::file('logomarca',  ['class' => 'form-control']) }}
+                                            <div class="col-md-6">
+                                                @if(!empty($account->logo))
+                                                    <img src="{{ url('uploads/'.$account->logo) }}" alt="{{ $user->name }}" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
+                                                @else
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NCIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0NyIgeT0iOTAiIHN0eWxlPSJmaWxsOiNhYWE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MTJweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj45NHgxODA8L3RleHQ+PC9zdmc+" alt="100%x180" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
+                                                @endif
+                                            </div>
+                                            <div class="col-md-6">
+                                                {{ Form::label('logomarca', 'Logo (.jpg, .png, .gif)') }}
+                                                {{ Form::file('logomarca',  ['class' => 'form-control']) }}
+                                            </div>
                                         </div>
 
                                         <div class="form-group col-md-12">
-                                            {{ Form::label('certificado', 'Certificado (.pdf, .jpg)') }}
-                                            {{ Form::file('certificado',  ['class' => 'form-control']) }}
+                                            <div class="col-md-8">
+                                                {{ Form::label('certificado', 'Certificado (.pdf, .jpg)') }}
+                                                {{ Form::file('certificado',  ['class' => 'form-control']) }}
+                                            </div>
                                         </div>
 
                                     </div>

@@ -28,7 +28,7 @@ class AccountRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'cnpj' => 'required|max:20|unique:accounts|',
+            'cnpj' => 'required|max:20|',
             'social'  => 'required',
             'website'  => 'url',
             'occupation'  => 'required|numeric',

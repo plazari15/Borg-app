@@ -30,12 +30,12 @@ class AccountController extends Controller
     {
         try{
             if($request->hasFile('logomarca')) {
-                $logo = $request->logomarca->store('logomarca');
+                $logo = $request->logomarca->store('logomarca', 'uploads');
                 $request->merge(['logo' => $logo]);
             }
 
             if($request->hasFile('certificado')) {
-                $certificado = $request->certificado->store('certificate');
+                $certificado = $request->certificado->store('certificate', 'uploads');
                 $request->merge(['certificate' => $certificado]);
             }
 
