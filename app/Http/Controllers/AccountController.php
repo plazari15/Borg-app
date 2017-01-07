@@ -47,8 +47,10 @@ class AccountController extends Controller
             $account = Account::firstOrCreate(['user_id' => Auth::user()->id]);
 
             if($account) {
+                Auth::user()->update($request->only('email', 'name'));
                 Auth::user()->account()->update($request->except(['_token', 'name', 'email', 'logomarca', 'certificado']));
             }else{
+                Auth::user()->update($request->only('email', 'name'));
                 Auth::user()->account()->create($request->all());
             }
 
