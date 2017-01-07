@@ -177,6 +177,8 @@ return [
         // borg\Providers\BroadcastServiceProvider::class,
         borg\Providers\EventServiceProvider::class,
         borg\Providers\RouteServiceProvider::class,
+        borg\Providers\PasswordRequest::class,
+        \borg\Providers\CreateNewToken::class,
 
     ],
 

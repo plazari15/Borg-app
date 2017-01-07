@@ -4,6 +4,8 @@ namespace borg\Http\Controllers;
 
 use borg\Account;
 use borg\Http\Requests\AccountRequest;
+use borg\Http\Requests\PasswordRequest;
+use borg\Services\RenewUserToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -59,6 +61,23 @@ class AccountController extends Controller
             Session::flash('error', 'Ocorreu um erro, tente novamente.');
         }
 
+        return back();
+    }
+
+    public function passEdit(){
+        return view('account/password');
+    }
+
+    public function passUpdate(PasswordRequest $request){
+        try{
+           $user = Auth::user();
+           $user->password = bcrypt($request->pass);
+           $user->save();
+           \Event::fire('user.change', array($user));
+            Session::flash('success', 'Dados Atualizados com Sucesso.');
+        }catch (Exception $e){
+            Session::flash('error', 'Ocorreu um erro, tente novamente.');
+        }
         return back();
     }
 }
