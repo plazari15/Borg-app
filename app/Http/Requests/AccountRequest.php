@@ -32,7 +32,7 @@ class AccountRequest extends FormRequest
         $this->rules['social'] = ['required'];
         $this->rules['website'] = ['url'];
         $this->rules['phone'] = ['required'];
-        $this->rules['occupation'] = ['required', 'numeric'];
+        $this->rules['occupation'] = ['required', 'in:cooperativa,fornecedor,comprador'];
         $this->rules['cep'] = ['required'];
         $this->rules['address'] = ['required'];
         $this->rules['number'] = ['required'];
@@ -43,6 +43,8 @@ class AccountRequest extends FormRequest
 
         if(empty($account->cnpj) OR $account->cnpj != $this->cnpj){
             $this->rules['cnpj'] = ['required', 'max:20', 'unique:accounts'];
+            $this->rules['logomarca'] = ['required'];
+            $this->rules['certificado'] = ['required'];
         }else{
             $this->rules['cnpj'] = ['required', 'max:20'];
         }

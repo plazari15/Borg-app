@@ -20,7 +20,7 @@ class CreateAccountsTable extends Migration
             $table->string('cnpj')->nullable();
             $table->string('social')->nullable();
             $table->string('website')->nullable();
-            $table->integer('occupation')->nullable();
+            $table->enum('occupation', ['fornecedor', 'comprador', 'cooperativa'])->nullable();
             $table->string('cep')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();

@@ -64,6 +64,14 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             require base_path('routes/MyAccount.php');
         });
+
+        Route::group([
+            'middleware' => ['web', 'role:admin'],
+            'namespace' => $this->namespace,
+            'prefix' => 'dashboard/admin'
+        ], function ($router) {
+            require base_path('routes/Admin.php');
+        });
     }
 
     /**

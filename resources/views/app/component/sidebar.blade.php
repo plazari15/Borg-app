@@ -26,28 +26,42 @@
                <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
             <li class="nav-item start ">
-                <a href="" class="nav-link nav-toggle">
+                <a href="{{ url('/dashboard') }}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Ínicio</span>
                 </a>
             </li>
-            <li class="heading">
-                <h3 class="uppercase">Features</h3>
-            </li>
-            <li class="nav-item    active open">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-diamond"></i>
-                    <span class="title">UI Features</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ">
-                            <span class="title">Color Library</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+            @if(Auth::user()->hasRole('admin'))
+                <li class="heading">
+                    <h3 class="uppercase">Contas</h3>
+                </li>
+                <li class="nav-item    active open">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-user"></i>
+                        <span class="title">Administrar Contas</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item  ">
+                            <a href="{{ url('admin/account/listar') }}" class="nav-link ">
+                                <span class="title">Listar Todas</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item  ">
+                            <a href="admin/account/listar/aprovacao" class="nav-link ">
+                                <span class="title">Aguardando aprovação</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item  ">
+                            <a href="admin/account/listar/reprovadas" class="nav-link ">
+                                <span class="title">Reprovadas</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
 
 
         </ul>

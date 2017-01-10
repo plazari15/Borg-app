@@ -85,7 +85,7 @@
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('occupation', 'Área de Atuação') }}
-                                                    {{ Form::select('occupation', ['1' => 'Fornecedor', '2' => 'Produtor',  '3' => 'Vendedor'], $account->occupation,  ['class' => 'form-control']) }}
+                                                    {{ Form::select('occupation', ['fornecedor' => 'Fornecedor', 'comprador' => 'Comprador',  'cooperativa' => 'Cooperativa'], $user->account->occupation,  ['class' => 'form-control']) }}
                                                 </div>
 
                                             <h4>Endereço</h4>

@@ -19,6 +19,12 @@ class CreateNewToken extends ServiceProvider
 
             $user->save();
         });
+
+        Event::listen('auth.login', function ($user){
+            $user->api_token = str_random(60);
+
+            $user->save();
+        });
     }
 
     /**

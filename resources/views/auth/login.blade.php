@@ -129,6 +129,13 @@
             <label class="control-label visible-ie8 visible-ie9">Email</label>
             <input class="form-control placeholder-no-fix" type="email" autocomplete="off" placeholder="Email" name="email" value="{{ old('email') }}" /> </div>
         <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Tipo de conta</label>
+            <select class="form-control placeholder-no-fix"  autocomplete="off" placeholder="Email" name="type">
+                <option value="comprador">Comprador</option>
+                <option value="cooperativa">Cooperativa</option>
+                <option value="fornecedor">Fornecedor</option>
+            </select></div>
+        <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">Password</label>
             <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Senha" name="password" /> </div>
         <div class="form-group">

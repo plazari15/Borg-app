@@ -51,9 +51,11 @@ class AccountController extends Controller
             if($account) {
                 Auth::user()->update($request->only('email', 'name'));
                 Auth::user()->account()->update($request->except(['_token', 'name', 'email', 'logomarca', 'certificado']));
+                \Event::fire('user.change', array(Auth::user()));
             }else{
                 Auth::user()->update($request->only('email', 'name'));
                 Auth::user()->account()->create($request->all());
+                \Event::fire('user.change', array(Auth::user()));
             }
 
             Session::flash('success', 'Dados Atualizados com Sucesso.');
