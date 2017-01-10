@@ -43,19 +43,19 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item  ">
-                            <a href="{{ url('dashboard/admin/account/listar') }}" class="nav-link ">
+                            <a href="{{ url('dashboard/admin/account/all') }}" class="nav-link ">
                                 <span class="title">Listar Todas</span>
                             </a>
                         </li>
 
                         <li class="nav-item  ">
-                            <a href="{{ url('dashboard/admin/account/aguardando') }}" class="nav-link ">
+                            <a href="{{ url('dashboard/admin/account/waiting') }}" class="nav-link ">
                                 <span class="title">Aguardando aprovação</span>
                             </a>
                         </li>
 
                         <li class="nav-item  ">
-                            <a href="{{ url('dashboard/admin/account/reprovadas') }}" class="nav-link ">
+                            <a href="{{ url('dashboard/admin/account/removed') }}" class="nav-link ">
                                 <span class="title">Reprovadas</span>
                             </a>
                         </li>

@@ -34,7 +34,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- BEGIN SAMPLE TABLE PORTLET-->
-                    <div class="table-scrollable">
+                    <div class="alert alert-info" v-if="results.length <= 0">
+                        Nenhum usuário encontrado neste filtro
+                    </div>
+                    <div class="table-scrollable" v-if="results.length > 0">
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -62,10 +65,10 @@
                                             <span class="label label-sm" v-bind:class="[[ user.accountstatus.class ]]">[[ user.accountstatus.label ]]  </span>
                                         </td>
                                         <td><a v-bind:href="GenerateLink(user.id)">Editar</a></td>
-                                        <td><i v-if="user.status == 0 || user.status == 2"  class="fa fa-play" aria-hidden="true"></i>
-                                            <i v-if="user.status == 1" class="fa fa-pause"></i></td>
-                                        <td><i v-if="user.status != 2" class="fa fa-stop"></i></td>
-                                        <td><i class="fa fa-trash"></i></td>
+                                        <td><i v-if="user.status == 0 || user.status == 2"  class="fa fa-play" aria-hidden="true" @click="UserStatus(1, user.id)"></i>
+                                            <i v-if="user.status == 1" class="fa fa-pause"  @click="UserStatus(0, user.id)"></i></td>
+                                        <td><i v-if="user.status != 2" class="fa fa-stop"  @click="UserStatus(2, user.id)"></i></td>
+                                        <td><i class="fa fa-trash" @click="DeleteUser(user.id)"></i></td>
 
                                     </tr>
                             </tbody>
@@ -85,6 +88,7 @@
     <script>
         var api_token = "{{ Auth::user()->api_token }}";
         var url_edit = "{{ url('dashboard/admin/account/') }}/";
+        var status = "{{ $status }}";
     </script>
     <script src="{{ URL::asset('js/vue/Admin/Accounts.js') }}" type="text/javascript"></script>
 @endsection

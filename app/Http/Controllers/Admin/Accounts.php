@@ -12,19 +12,16 @@ use League\Flysystem\Exception;
 
 class Accounts extends Controller
 {
-    public function lists(){
-        $accounts = Account::paginate(20);
-        return view('admin.account.index', compact('accounts'));
+    public function lists($status){
+        return view('admin.account.index', compact('status'));
     }
 
     public function waiting(){
-        $accounts = Account::where('status', '0')->paginate(20);
-        return view('admin.account.index', compact('accounts'));
+        return view('admin.account.index');
     }
 
     public function denided(){
-        $accounts = Account::where('status', '2')->paginate(20);
-        return view('admin.account.index', compact('accounts'));
+        return view('admin.account.index');
     }
 
     public function edit($id){
