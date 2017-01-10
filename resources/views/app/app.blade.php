@@ -120,8 +120,8 @@
 <script src="{{ URL::asset('assets/layouts/layout/scripts/demo.min.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('assets/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="{{ URL::asset('js/vue/axios.min.js') }}"></script>
+<script src="{{ URL::asset('js/vue/vue.js') }}"></script>
 {{--<script src="{{ elixir('js/app.js') }}" type="text/javascript"></script>--}}
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
