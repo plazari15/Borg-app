@@ -48,16 +48,16 @@
                             <div class="m-grid">
                                     <div class="m-grid-col m-grid-col-md-8 m-grid-col-middle">
                                         <div class="form-body">
-                                            {!! Form::open(['url' => 'dashboard/account', 'files' => true]) !!}
+                                            {!! Form::open(['url' => 'dashboard/admin/account/'.$account->id, 'files' => true]) !!}
                                                 <h3>Dados Pessoais</h3>
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('name', 'Nome Completo') }}
-                                                    {{ Form::text('name', $user->name, ['class' => 'form-control']) }}
+                                                    {{ Form::text('name', $account->user->name, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('email', 'Endereço de Email') }}
-                                                    {{ Form::email('email', $user->email, ['class' => 'form-control']) }}
+                                                    {{ Form::email('email', $account->user->email, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <h4>Dados empresáriais</h4>
@@ -69,63 +69,63 @@
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('social', 'Razão Social') }}
-                                                    {{ Form::text('social', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('social', $account->social, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('website', 'Site') }}
-                                                    {{ Form::text('website', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('website', $account->websire, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('tel', 'Telefone') }}
-                                                    {{ Form::text('phone', null, ['class' => 'form-control', 'id' => 'mask_telphone']) }}
+                                                    {{ Form::text('phone', $account->phone, ['class' => 'form-control', 'id' => 'mask_telphone']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('occupation', 'Área de Atuação') }}
-                                                    {{ Form::select('occupation', ['fornecedor' => 'Fornecedor', 'comprador' => 'Comprador',  'cooperativa' => 'Cooperativa'], $user->account->occupation ?? null,  ['class' => 'form-control']) }}
+                                                    {{ Form::select('occupation', ['fornecedor' => 'Fornecedor', 'comprador' => 'Comprador',  'cooperativa' => 'Cooperativa'], $account->user->occupation,  ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <h4>Endereço</h4>
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('cep', 'CEP') }}
-                                                    {{ Form::text('cep', null, ['class' => 'form-control', 'id' => 'cep']) }}
+                                                    {{ Form::text('cep', $account->cep, ['class' => 'form-control', 'id' => 'cep']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('address', 'Endereço') }}
-                                                    {{ Form::text('address', null, ['class' => 'form-control', 'id' => 'endereco']) }}
+                                                    {{ Form::text('address', $account->address, ['class' => 'form-control', 'id' => 'endereco']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-4">
                                                     {{ Form::label('number', 'Número') }}
-                                                    {{ Form::text('number', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('number', $account->number, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-2">
                                                     {{ Form::label('complement', 'Comlemento') }}
-                                                    {{ Form::text('complement', null, ['class' => 'form-control']) }}
+                                                    {{ Form::text('complement', $account->complement, ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('district', 'Bairro') }}
-                                                    {{ Form::text('district', null, ['class' => 'form-control', 'id' => 'bairro']) }}
+                                                    {{ Form::text('district', $account->district, ['class' => 'form-control', 'id' => 'bairro']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('city', 'Cidade') }}
-                                                    {{ Form::text('city', null, ['class' => 'form-control', 'id' => 'cidade']) }}
+                                                    {{ Form::text('city', $account->city, ['class' => 'form-control', 'id' => 'cidade']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('state', 'Estado') }}
-                                                    {{ Form::text('state', null, ['class' => 'form-control', 'id' => 'uf']) }}
+                                                    {{ Form::text('state', $account->state, ['class' => 'form-control', 'id' => 'uf']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-3">
                                                     {{ Form::label('country', 'País') }}
-                                                    {{ Form::text('country', null, ['class' => 'form-control', 'id' => 'pais']) }}
+                                                    {{ Form::text('country', $account->country, ['class' => 'form-control', 'id' => 'pais']) }}
                                                 </div>
                                         </div>
                                     </div>
@@ -133,13 +133,19 @@
                                         <h3>Arquivos referentes a sua empresa</h3>
 
                                         <div class="form-group col-md-12">
-                                                {{ Form::label('logomarca', 'Logo (.jpg, .png, .gif)') }}
-                                                {{ Form::file('logomarca',  ['class' => 'form-control']) }}
+                                            @if($account->logo)
+                                               <img src="{{ url('uploads/'.$account->logo) }}">
+                                            @else
+                                                <div class="alert alert-info">Usuário não enviou uma logomarca</div>
+                                            @endif
                                         </div>
 
                                         <div class="form-group col-md-12">
-                                                {{ Form::label('certificado', 'Certificado (.pdf, .jpg)') }}
-                                                {{ Form::file('certificado',  ['class' => 'form-control']) }}
+                                            @if($account->certificate)
+                                                <a href="{{ url('uploads/'.$account->certificate) }}" target="_blank">Clique para visualizar o certificado</a>
+                                            @else
+                                                <div class="alert alert-info">Usuário não enviou seu certificado</div>
+                                            @endif
                                         </div>
 
                                     </div>

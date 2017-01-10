@@ -2,6 +2,7 @@
 
 namespace borg;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -35,5 +36,14 @@ class User extends Authenticatable
      */
     public function account(){
         return $this->hasOne(Account::class);
+    }
+    
+    
+    /**
+     * Exibição dos campos
+     */
+    
+    public function getCreatedAtAttribute($value){
+        return Carbon::parse($value)->format('d/m/Y');
     }
 }

@@ -31,4 +31,23 @@ class Account extends Model
     }
 
 
+    /**
+     * Exibir campos
+     */
+    public function status(){
+        switch ($this->status){
+            case '0':
+                return ['class' => 'label-warning', 'label' => 'Inativo'];
+                break;
+
+            case '1':
+                return ['class' => 'label-success', 'label' => 'Ativo'];
+                break;
+
+            case '2':
+                return ['class' => 'label-danger', 'label' => 'Reprovado'];
+                break;
+        }
+    }
+
 }
