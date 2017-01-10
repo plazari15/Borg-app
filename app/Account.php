@@ -25,6 +25,10 @@ class Account extends Model
         'phone'
     ];
 
+    protected $appends = [
+        'accountstatus'
+    ];
+
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -34,20 +38,22 @@ class Account extends Model
     /**
      * Exibir campos
      */
-    public function status(){
+    public function getaccountstatusAttribute(){
         switch ($this->status){
             case '0':
-                return ['class' => 'label-warning', 'label' => 'Inativo'];
+                $response = ["class" => "label-warning", "label" => "Inativo"];
                 break;
 
             case '1':
-                return ['class' => 'label-success', 'label' => 'Ativo'];
+                $response = ['class' => 'label-success', 'label' => 'Ativo'];
                 break;
 
             case '2':
-                return ['class' => 'label-danger', 'label' => 'Reprovado'];
+                $response = ["class" => "label-danger", "label" => "Reprovado"];
                 break;
         }
+
+        return $response;
     }
 
 }

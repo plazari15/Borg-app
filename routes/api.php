@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::get('/users', function (Request $request) {
     return \borg\User::all();
 })->middleware('auth:api');
+
+/**
+ * Rotas para a administração de usuários!
+ */
+Route::get('/users/{action}', 'Api\AccountsController@list')->middleware(['auth:api', 'role:admin']);

@@ -3,7 +3,7 @@
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <!-- BEGIN CONTENT BODY -->
-        <div class="page-content">
+        <div class="page-content" id="app">
             <!-- BEGIN PAGE HEADER-->
             <!-- BEGIN PAGE BAR -->
             <div class="page-bar">
@@ -33,7 +33,6 @@
             <!-- END PAGE HEADER-->
             <div class="row">
                 <div class="col-md-12">
-                @if(count($accounts) > 0)
                     <!-- BEGIN SAMPLE TABLE PORTLET-->
                     <div class="table-scrollable">
                         <table class="table table-hover">
@@ -48,29 +47,27 @@
                                 <th> Status</th>
                                 <th> </th>
                                 <th> </th>
+                                <th> </th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($accounts as $account)
-                                    <tr>
-                                        <td> {{ $account->id }}</td>
-                                        <td> {{ $account->user->name }}</td>
-                                        <td> {{ $account->user->email }}</td>
-                                        <td> {{ $account->cnpj }}</td>
-                                        <td> {{ $account->occupation }}</td>
-                                        <td> {{ $account->user->created_at }}</td>
+                                    <tr v-for="user in results">
+                                        <td>[[ user.id ]]</td>
+                                        <td>[[ user.user.name ]] </td>
+                                        <td>[[ user.user.email ]] </td>
+                                        <td>[[ user.cnpj ]] </td>
+                                        <td>[[ user.occupation ]] </td>
+                                        <td>[[ user.created_at ]] </td>
                                         <td>
-                                            <span class="label label-sm {{ $account->status()['class'] }}"> {{ $account->status()['label'] }} </span>
+                                            <span class="label label-sm" v-bind:class="[[ user.accountstatus.class ]]">[[ user.accountstatus.label ]]  </span>
                                         </td>
-                                        <td><a href="{{ url('dashboard/admin/account/'.$account->id) }}">Editar</a></td>
-                                        <td>STATUS</td>
+                                        <td><a v-bind:href="GenerateLink(user.id)">Editar</a></td>
+                                        <td><i v-if="user.status == 0 || user.status == 2"  class="fa fa-play" aria-hidden="true"></i>
+                                            <i v-if="user.status == 1" class="fa fa-pause"></i></td>
+                                        <td><i v-if="user.status != 2" class="fa fa-stop"></i></td>
+                                        <td><i class="fa fa-trash"></i></td>
+
                                     </tr>
-                                @endforeach
-                            @else
-                               <div class="alert alert-danger">
-                                   <p>Nenhuma conta foi encontrada!</p>
-                               </div>
-                            @endif
                             </tbody>
                         </table>
                     </div>
@@ -82,4 +79,12 @@
     <!-- END CONTENT BODY -->
     </div>
     <!-- END CONTENT -->
+@endsection
+
+@section('vue')
+    <script>
+        var api_token = "{{ Auth::user()->api_token }}";
+        var url_edit = "{{ url('dashboard/admin/account/') }}/";
+    </script>
+    <script src="{{ URL::asset('js/vue/Admin/Accounts.js') }}" type="text/javascript"></script>
 @endsection

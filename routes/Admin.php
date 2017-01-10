@@ -6,6 +6,9 @@
  * Time: 00:28
  */
 
+/**
+ * Rotas para o painel administrativo
+ */
 Route::get('account/listar', 'Admin\Accounts@lists');
 Route::get('account/aguardando', 'Admin\Accounts@waiting');
 Route::get('account/reprovadas', 'Admin\Accounts@denided');

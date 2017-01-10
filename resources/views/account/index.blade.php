@@ -187,6 +187,7 @@
     <!-- END CONTENT -->
 @endsection
 
+
 @section('page-scripts')
     <script src="{{ URL::asset('assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/global/plugins/jquery.input-ip-address-control-1.0.min.js') }}" type="text/javascript"></script>
