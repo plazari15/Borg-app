@@ -26,7 +26,6 @@ class ProductsRequest extends FormRequest
         return [
             'title' => 'required',
             'measure' => 'in:toneladas,kilos,gramas',
-            'foto' => 'required'
         ];
     }
 }

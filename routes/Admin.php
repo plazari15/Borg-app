@@ -19,3 +19,5 @@ Route::post('account/{id}', 'Admin\Accounts@update');
 Route::get('produtos', 'Admin\AdminProdutos@index');
 Route::get('produtos/create', 'Admin\AdminProdutos@create');
 Route::post('produtos/create', 'Admin\AdminProdutos@store');
+Route::get('products/edit/{id}', 'Admin\AdminProdutos@edit');
+Route::post('products/edit/{id}', 'Admin\AdminProdutos@update');
