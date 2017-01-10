@@ -23,3 +23,9 @@ Route::get('/users', function (Request $request) {
 Route::get('/users/{action}', 'Api\AccountsController@list')->middleware(['auth:api', 'role:admin']);
 Route::put('/users/status/{id}', 'Api\AccountsController@status')->middleware(['auth:api', 'role:admin']);
 Route::delete('/users/{id}', 'Api\AccountsController@delete')->middleware(['auth:api', 'role:admin']);
+
+/**
+ * Rotas para administração de produtos
+ */
+Route::get('/products', 'Api\ProductsController@index')->middleware(['auth:api', 'role:admin']);
+Route::delete('/products/{id}', 'Api\ProductsController@delete')->middleware(['auth:api', 'role:admin']);

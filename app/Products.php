@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    //
+    protected $fillable = [
+        'title',
+        'measure',
+        'photo'
+    ];
+
+    public function getPhotoAttribute($value){
+        return url('uploads/'.$value);
+    }
 }

@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->string('title')->nullable();
             $table->enum('measure', ['kilos', 'gramas', 'toneladas'])->nullable();
             $table->string('photo')->nullable();
-            $table->enum('status', ['ativo', 'inativo']);
             $table->timestamps();
         });
     }

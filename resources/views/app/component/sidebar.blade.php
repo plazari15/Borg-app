@@ -61,6 +61,16 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="heading">
+                    <h3 class="uppercase">Produtos</h3>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/admin/produtos') }}" class="nav-link nav-toggle">
+                        <i class="icon-user"></i>
+                        <span class="title">Administrar Produtos</span>
+                    </a>
+                </li>
             @endif
 
 

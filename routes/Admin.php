@@ -12,3 +12,10 @@
 Route::get('account/{status}', 'Admin\Accounts@lists');
 Route::get('account/{id}', 'Admin\Accounts@edit');
 Route::post('account/{id}', 'Admin\Accounts@update');
+
+/**
+ * Visualizar Produtos
+ */
+Route::get('produtos', 'Admin\AdminProdutos@index');
+Route::get('produtos/create', 'Admin\AdminProdutos@create');
+Route::post('produtos/create', 'Admin\AdminProdutos@store');
