@@ -21,17 +21,21 @@
                     </li>
                 </ul>
                 <div class="page-toolbar">
-                    <!-- Aqui pode ir algo que queremos na lateral -->
+                    <div class="actions ">
+                        <a href="{{ url('dashboard/admin/produtos/create') }}"><button class="btn blue">Criar novo produto</button></a>
+                    </div>
                 </div>
             </div>
             <!-- END PAGE BAR -->
             <!-- BEGIN PAGE TITLE-->
             <h1 class="page-title"> Listagem de produtos
                 <small>Esta listagem exibe os produtos pré-cadastrados no sistema. </small>
+
             </h1>
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
             <div class="row">
+
                 <div class="col-md-12">
                     <!-- BEGIN SAMPLE TABLE PORTLET-->
                     <div class="alert alert-info" v-if="results.length <= 0">
