@@ -78,5 +78,5 @@
         var api_token = "{{ Auth::user()->api_token }}";
         var url_edit = "{{ url('dashboard/admin/products/edit') }}/";
     </script>
-    <script src="{{ URL::asset('js/vue/Admin/Products/Itens.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/vue/Admin/Products/Products.js') }}" type="text/javascript"></script>
 @endsection
