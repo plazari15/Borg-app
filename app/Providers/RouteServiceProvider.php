@@ -66,6 +66,14 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
+            'prefix' => 'dashboard'
+        ], function ($router) {
+            require base_path('routes/Dashboard.php');
+        });
+
+        Route::group([
             'middleware' => ['web', 'role:admin'],
             'namespace' => $this->namespace,
             'prefix' => 'dashboard/admin'

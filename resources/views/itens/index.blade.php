@@ -13,11 +13,7 @@
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <a href="#">Blank Page</a>
-                        <i class="fa fa-circle"></i>
-                    </li>
-                    <li>
-                        <span>Page Layouts</span>
+                        <span>Itens</span>
                     </li>
                 </ul>
                 <div class="page-toolbar">
@@ -28,8 +24,8 @@
             </div>
             <!-- END PAGE BAR -->
             <!-- BEGIN PAGE TITLE-->
-            <h1 class="page-title"> Listagem de produtos
-                <small>Esta listagem exibe os produtos pré-cadastrados no sistema. </small>
+            <h1 class="page-title"> Meus Produtos
+                <small>Edite e cadastre novos proutos seus</small>
 
             </h1>
             <!-- END PAGE TITLE-->
@@ -47,18 +43,22 @@
                             <tr>
                                 <th> Foto</th>
                                 <th> Nome</th>
-                                <th> Medida</th>
-                                <th> Produtos cadastrados</th>
+                                <th>  Medida de referência</th>
+                                <th> Bom para</th>
+                                <th> Tipo</th>
+                                <th> Peso / Quantidade</th>
+                                <th> </th>
                             </tr>
                             </thead>
                             <tbody>
-                                    <tr v-for="product in results">
-                                        <td><img v-bind:src="[[ product.photo ]]" width="80"> </td>
-                                        <td>[[ product.title ]] </td>
-                                        <td>[[ product.measure ]] </td>
-                                        <td>0 </td>
-                                        <td><a v-bind:href="GenerateLink(product.id)">Editar</a></td>
-                                        <td><i class="fa fa-trash" @click="DeleteProduct(product.id)"></i></td>
+                                    <tr v-for="itens in results">
+                                        <td>[[ itens.photo ]]</td>
+                                        <td>[[ itens.product != null ? itens.product.title : itens.title]]</td>
+                                        <td>[[ itens.product != null ? itens.product.measure : 'N/D']]</td>
+                                        <td>[[ itens.goodto]]</td>
+                                        <td>[[ itens.type ]]</td>
+                                        <td>[[ itens.quantity != null ? itens.quantity : itens.weight ]]</td>
+                                        <td><i @click="DeleteItens(itens.id)" class="fa fa-trash"></i> </td>
                                     </tr>
                             </tbody>
                         </table>
@@ -78,5 +78,5 @@
         var api_token = "{{ Auth::user()->api_token }}";
         var url_edit = "{{ url('dashboard/admin/products/edit') }}/";
     </script>
-    <script src="{{ URL::asset('js/vue/Admin/Products/Itens.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/vue/Itens/Itens.js') }}" type="text/javascript"></script>
 @endsection

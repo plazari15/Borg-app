@@ -15,4 +15,8 @@ class Products extends Model
     public function getPhotoAttribute($value){
         return url('uploads/'.$value);
     }
+
+    public function itens(){
+        return $this->hasMany(Itens::class);
+    }
 }

@@ -29,3 +29,9 @@ Route::delete('/users/{id}', 'Api\AccountsController@delete')->middleware(['auth
  */
 Route::get('/products', 'Api\ProductsController@index')->middleware(['auth:api', 'role:admin']);
 Route::delete('/products/{id}', 'Api\ProductsController@delete')->middleware(['auth:api', 'role:admin']);
+
+/**
+ * Rotas para Edição de Itens (Dashboard)
+ */
+Route::get('myitens', 'Api\ItensController@index')->middleware(['auth:api', 'role:admin']);
+Route::delete('myitens/{id}', 'Api\ItensController@delete')->middleware(['auth:api', 'role:admin']);

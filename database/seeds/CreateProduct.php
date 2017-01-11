@@ -14,19 +14,17 @@ class CreateProduct extends Seeder
         \borg\Products::create([
             'title' => 'Vagem',
             'measure' => 'kilos',
-            'status' => 'ativo'
+
         ]);
 
         \borg\Products::create([
             'title' => 'Cenoura',
             'measure' => 'gramas',
-            'status' => 'ativo'
         ]);
 
         \borg\Products::create([
             'title' => 'Kiabo',
             'measure' => 'toneladas',
-            'status' => 'inativo'
         ]);
     }
 }
