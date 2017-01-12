@@ -17,12 +17,12 @@ class ValidateAccount
      */
     public function handle($request, Closure $next)
     {
-//        if (Auth::check()) {
-//            if (empty(Auth::user()->account->cnpj) && !Request::is('dashboard/account') && !Request::is('logout') ) {
-//                Session::flash('firstMessage', []);
-//                return redirect('dashboard/account');
-//            }
-//        }
+        if (Auth::check()) {
+            if (empty(Auth::user()->account->cnpj) && !Request::is('dashboard/account') && !Request::is('logout') ) {
+                Session::flash('firstMessage', []);
+                return redirect('dashboard/account');
+            }
+        }
         return $next($request);
     }
 }
