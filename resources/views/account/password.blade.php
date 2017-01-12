@@ -2,7 +2,7 @@
 @section('title', 'Minha Conta')
 @section('content')
     <!-- BEGIN CONTENT -->
-    <div class="page-content-wrapper">
+    <div class="page-content-wrapper" id="app">
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->

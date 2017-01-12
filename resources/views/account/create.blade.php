@@ -2,7 +2,7 @@
 @section('title', 'Minha Conta')
 @section('content')
     <!-- BEGIN CONTENT -->
-    <div class="page-content-wrapper">
+    <div class="page-content-wrapper" id="app">
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
@@ -40,8 +40,14 @@
                             </ul>
                         </div>
                     @endif
-
-                    @if(Session::has('flash_message'))
+                    <!-- Mensagem para a primeira vez que acessa o sistema  -->
+                        @if(Session::has('firstMessage'))
+                            <div class="note note-info">
+                                Antes de utilizar o sistema, você precisa preencher os dados de sua empresa abaixo!
+                            </div>
+                        @endif
+                    <!-- fim dessa mensagem -->
+                    @if(Session::has('success'))
                         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
                     @endif
                         <div class="portlet-body">
@@ -156,7 +162,7 @@
                             <div class="m-grid">
                                     <div class="m-grid-col m-grid-col-md-8 m-grid-col-middle">
                                         <div class="form-body col-md-12">
-                                                <button class="btn green-jungle btn-block">Salvar Alterações</button>
+                                                <button type="submit" class="btn green-jungle btn-block">Salvar Alterações</button>
                                             {!! Form::close() !!}
                                         </div>
                                     </div>

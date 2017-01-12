@@ -2,7 +2,7 @@
 @section('title', 'Minha Conta')
 @section('content')
     <!-- BEGIN CONTENT -->
-    <div class="page-content-wrapper">
+    <div class="page-content-wrapper" id="app">
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
@@ -41,6 +41,14 @@
                             </ul>
                         </div>
                     @endif
+
+                    <!-- Mensagem para a primeira vez que acessa o sistema  -->
+                        @if(Session::has('firstMessage'))
+                            <div class="note note-info">
+                                Antes de utilizar o sistema, você precisa preencher os dados de sua empresa abaixo!
+                            </div>
+                        @endif
+                    <!-- fim dessa mensagem -->
 
                         @if(Session::has('success'))
                             <div class="alert alert-success green-jungle"><span class="glyphicon glyphicon-ok"></span><em> {!! session('success') !!}</em></div>
@@ -194,3 +202,7 @@
     <script src="{{ URL::asset('assets/pages/scripts/form-input-mask.min.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/js/buscaCep.js') }}" type="text/javascript"></script>
 @endsection
+
+@section('noty')
+    <script src="{{ URL::asset('js/broadcast/Noty.js') }}" type="text/javascript"></script>
+    @endsection

@@ -1,0 +1,19 @@
+{
+	"appKey": "l83ih6crs5mq36flo2q2kmr6ed44l0s2h7le0nk4kc2jl5u10hf6a8jo4fp4",
+	"authHost": null,
+	"authEndpoint": "/broadcasting/auth",
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		}
+	},
+	"devMode": false,
+	"host": "borg.app",
+	"port": "6001",
+	"referrers": [],
+	"socketio": {},
+	"sslCertPath": "",
+	"sslKeyPath": ""
+}

@@ -14,7 +14,14 @@ require('./bootstrap');
  */
 
 // Vue.component('example', require('./components/Example.vue'));
+new Vue({
+    el: '#app',
+    delimiters : ['[[', ']]'], //Versão 2.0 do VUE
+    data : {
+        userId : userId
+    },
+    mounted(){
+        Echo.join(`App.User.${userId}`)
+    }
+});
 
-// const app = new Vue({
-//     el: '#app'
-// });

@@ -52,21 +52,21 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::group([
-            'middleware' => 'web',
+            'middleware' => ['web', 'account'],
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/web.php');
         });
 
         Route::group([
-            'middleware' => 'web',
+            'middleware' => ['web', 'account'],
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/MyAccount.php');
         });
 
         Route::group([
-            'middleware' => 'web',
+            'middleware' => ['web', 'account'],
             'namespace' => $this->namespace,
             'prefix' => 'dashboard'
         ], function ($router) {
@@ -74,7 +74,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::group([
-            'middleware' => ['web', 'role:admin'],
+            'middleware' => ['web', 'role:admin', 'account'],
             'namespace' => $this->namespace,
             'prefix' => 'dashboard/admin'
         ], function ($router) {

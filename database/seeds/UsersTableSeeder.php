@@ -20,5 +20,14 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->assignRole('admin');
+
+        $user = User::create([
+            'name' => 'Pedro Fornecedor',
+            'email' => 'fornecedor@gmail.com',
+            'api_token' => str_random(60),
+            'password' => bcrypt('pedro')
+        ]);
+
+        $user->assignRole('fornecedor');
     }
 }

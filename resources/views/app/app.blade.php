@@ -115,6 +115,7 @@
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="{{ URL::asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
+
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 @yield('page-scripts')
 <!-- END PAGE LEVEL SCRIPTS -->
@@ -124,10 +125,27 @@
 <script src="{{ URL::asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('assets/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
 <!-- Carregando o Vue -->
+<!-- Scripts do Pedro para execução de algumas funções que demandam de um JS sólido -->
 <script src="{{ URL::asset('js/vue/axios.min.js') }}"></script>
-<script src="{{ URL::asset('js/vue/vue.js') }}"></script>
+<script src="{{ URL::asset('js/vue/vue.min.js') }}"></script>
+<!-- FIM -->
+@yield('noty')
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
     $('#sair').click(function () {
         $('#logout').submit();
     });

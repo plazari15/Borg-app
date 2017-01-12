@@ -175,7 +175,7 @@ return [
          */
         borg\Providers\AppServiceProvider::class,
         borg\Providers\AuthServiceProvider::class,
-        // borg\Providers\BroadcastServiceProvider::class,
+         borg\Providers\BroadcastServiceProvider::class,
         borg\Providers\EventServiceProvider::class,
         borg\Providers\RouteServiceProvider::class,
         borg\Providers\PasswordRequest::class,

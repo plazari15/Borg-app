@@ -4,6 +4,7 @@ namespace borg\Http;
 
 use borg\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use ValidateAccount;
 
 class Kernel extends HttpKernel
 {
@@ -55,5 +56,6 @@ class Kernel extends HttpKernel
         'guest' => \borg\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'role' => \borg\Http\Middleware\RoleMiddleware::class,
+        'account' => \borg\Http\Middleware\ValidateAccount::class,
     ];
 }

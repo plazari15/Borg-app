@@ -73,6 +73,15 @@
                 </li>
             @endif
 
+            @if(Auth::user()->hasRole(['fornecedor']))
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/itens') }}" class="nav-link nav-toggle">
+                        <i class="icon-basket"></i>
+                        <span class="title">Meus Produtos</span>
+                    </a>
+                </li>
+            @endif
+
 
         </ul>
         <!-- END SIDEBAR MENU -->
