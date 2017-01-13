@@ -18,7 +18,7 @@
                 </ul>
                 <div class="page-toolbar">
                     <div class="actions ">
-                        <a href="{{ url('dashboard/admin/produtos/create') }}"><button class="btn blue">Criar novo produto</button></a>
+                        <a href="{{ url('dashboard/itens/create') }}"><button class="btn blue">Criar novo Item</button></a>
                     </div>
                 </div>
             </div>

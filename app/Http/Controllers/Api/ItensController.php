@@ -18,7 +18,7 @@ class ItensController extends Controller
         try{
             $itens = Itens::where('id', $id)->where('user_id', $request->user()->id)->first();
 
-            $itens->delete();
+            $itens->delete($itens->id);
 
             return response()->json(['message' => 'Item removido com sucesso!'], 200);
         }catch (Exception $e){

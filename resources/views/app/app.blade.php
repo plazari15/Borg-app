@@ -32,6 +32,7 @@
     <link href="{{ URL::asset('assets/layouts/layout/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/layouts/layout/css/themes/darkblue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
     <link href="{{ URL::asset('assets/layouts/layout/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ env('SOCKET_URL') }}"></script>
     <!-- END THEME LAYOUT STYLES -->
     {{--<link rel="shortcut icon" href="favicon.ico" /> </head>--}}
 <!-- END HEAD -->
