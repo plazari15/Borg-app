@@ -78,6 +78,13 @@
                         <span class="title">Administrar Itens</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/admin/itens') }}" class="nav-link nav-toggle">
+                        <i class="icon-handbag"></i>
+                        <span class="title">Pedidos de Consolidação</span>
+                    </a>
+                </li>
             @endif
 
             @if(Auth::user()->hasRole(['fornecedor']))
@@ -85,6 +92,29 @@
                     <a href="{{ url('dashboard/itens') }}" class="nav-link nav-toggle">
                         <i class="icon-basket"></i>
                         <span class="title">Meus Produtos</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/itens') }}" class="nav-link nav-toggle">
+                        <i class="icon-basket"></i>
+                        <span class="title">Leilão</span>
+                    </a>
+                </li>
+            @endif
+
+            @if(Auth::user()->hasRole(['comprador']))
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/itens') }}" class="nav-link nav-toggle">
+                        <i class="icon-basket"></i>
+                        <span class="title">Mercado</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/itens') }}" class="nav-link nav-toggle">
+                        <i class="icon-basket"></i>
+                        <span class="title">Leilão</span>
                     </a>
                 </li>
             @endif
