@@ -73,22 +73,22 @@
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('cnpj', 'CNPJ') }}
-                                                    {{ Form::text('cnpj', $account->cnpj  ?? '', ['class' => 'form-control']) }}
+                                                    {{ Form::text('cnpj', $user->account->cnpj  ?? '', ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('social', 'Razão Social') }}
-                                                    {{ Form::text('social', $account->social  ?? '', ['class' => 'form-control']) }}
+                                                    {{ Form::text('social', $user->account->social  ?? '', ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('website', 'Site') }}
-                                                    {{ Form::text('website', $account->website  ?? '', ['class' => 'form-control']) }}
+                                                    {{ Form::text('website', $user->account->website  ?? '', ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     {{ Form::label('tel', 'Telefone') }}
-                                                    {{ Form::text('phone', $account->phone, ['class' => 'form-control', 'id' => 'mask_telphone']) }}
+                                                    {{ Form::text('phone', $user->account->phone, ['class' => 'form-control', 'id' => 'mask_telphone']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">
@@ -99,42 +99,42 @@
                                             <h4>Endereço</h4>
                                             <div class="form-group col-md-12">
                                                 {{ Form::label('cep', 'CEP') }}
-                                                {{ Form::text('cep', $account->cep, ['class' => 'form-control', 'id' => 'cep']) }}
+                                                {{ Form::text('cep', $user->account->cep, ['class' => 'form-control', 'id' => 'cep']) }}
                                             </div>
 
                                             <div class="form-group col-md-6">
                                                 {{ Form::label('address', 'Endereço') }}
-                                                {{ Form::text('address', $account->address, ['class' => 'form-control', 'id' => 'endereco']) }}
+                                                {{ Form::text('address', $user->account->address, ['class' => 'form-control', 'id' => 'endereco']) }}
                                             </div>
 
                                             <div class="form-group col-md-4">
                                                 {{ Form::label('number', 'Número') }}
-                                                {{ Form::text('number', $account->number, ['class' => 'form-control']) }}
+                                                {{ Form::text('number', $user->account->number, ['class' => 'form-control']) }}
                                             </div>
 
                                             <div class="form-group col-md-2">
                                                 {{ Form::label('complement', 'Comlemento') }}
-                                                {{ Form::text('complement', $account->complement, ['class' => 'form-control']) }}
+                                                {{ Form::text('complement', $user->complement, ['class' => 'form-control']) }}
                                             </div>
 
                                             <div class="form-group col-md-3">
                                                 {{ Form::label('district', 'Bairro') }}
-                                                {{ Form::text('district', $account->district, ['class' => 'form-control', 'id' => 'bairro']) }}
+                                                {{ Form::text('district', $user->account->district, ['class' => 'form-control', 'id' => 'bairro']) }}
                                             </div>
 
                                             <div class="form-group col-md-3">
                                                 {{ Form::label('city', 'Cidade') }}
-                                                {{ Form::text('city', $account->city, ['class' => 'form-control', 'id' => 'cidade']) }}
+                                                {{ Form::text('city', $user->account->city, ['class' => 'form-control', 'id' => 'cidade']) }}
                                             </div>
 
                                             <div class="form-group col-md-3">
                                                 {{ Form::label('state', 'Estado') }}
-                                                {{ Form::text('state', $account->state, ['class' => 'form-control', 'id' => 'uf']) }}
+                                                {{ Form::text('state', $user->account->state, ['class' => 'form-control', 'id' => 'uf']) }}
                                             </div>
 
                                             <div class="form-group col-md-3">
                                                 {{ Form::label('country', 'País') }}
-                                                {{ Form::text('country', $account->country, ['class' => 'form-control', 'id' => 'pais']) }}
+                                                {{ Form::text('country', $user->account->country, ['class' => 'form-control', 'id' => 'pais']) }}
                                             </div>
                                         </div>
                                     </div>
@@ -143,8 +143,8 @@
 
                                         <div class="form-group col-md-12">
                                             <div class="col-md-6">
-                                                @if(!empty($account->logo))
-                                                    <img src="{{ url('uploads/'.$account->logo ?? '') }}" alt="{{ $user->name }}" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
+                                                @if(!empty($user->account->logo))
+                                                    <img src="{{ url('uploads/'.$user->account->logo ?? '') }}" alt="{{ $user->name }}" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
                                                 @else
                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NCIgaGVpZ2h0PSIxODAiPjxyZWN0IHdpZHRoPSI5NCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNlZWUiLz48dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI0NyIgeT0iOTAiIHN0eWxlPSJmaWxsOiNhYWE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MTJweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj45NHgxODA8L3RleHQ+PC9zdmc+" alt="100%x180" style="height: 180px; width: 100%; display: block;" data-src="../assets/global/plugins/holder.js/100%x180">
                                                 @endif

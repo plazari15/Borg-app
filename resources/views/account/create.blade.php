@@ -70,7 +70,7 @@
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('cnpj', 'CNPJ') }}
-                                                    {{ Form::text('cnpj', $account->cnpj  ?? '', ['class' => 'form-control']) }}
+                                                    {{ Form::text('cnpj', $user->cnpj  ?? '', ['class' => 'form-control']) }}
                                                 </div>
 
                                                 <div class="form-group col-md-12">

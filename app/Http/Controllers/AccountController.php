@@ -23,13 +23,12 @@ class AccountController extends Controller
      * MyAccount view
      */
     public function index(){
-        $account = Account::where('user_id', Auth::user()->id)->with('user')->first();
         $user = Auth::user();
-        if(!empty($account)){
-            return view('account.index', compact('account', 'user'));
+        if(!empty($user)){
+            return view('account.index', compact('user'));
         }
 
-        return view('account.create', compact('account', 'user'));
+        return view('account.create', compact('user'));
 
     }
 
