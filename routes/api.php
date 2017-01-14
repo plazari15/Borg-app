@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/users', function (Request $request) {
-    return \borg\User::all();
-})->middleware('auth:api');
+Route::get('/token/{id}', function ($id) {
+    return \borg\User::find($id)->api_token;
+});
 
 /**
  * Rotas para a administração de usuários!
@@ -42,3 +42,8 @@ Route::delete('myitens/{id}', 'Api\ItensController@delete')->middleware(['auth:a
  */
 Route::get('itens', 'Api\Admin\ItensController@index')->middleware(['auth:api', 'role:admin']);
 Route::delete('itens/{id}', 'Api\Admin\ItensController@delete')->middleware(['auth:api', 'role:admin']);
+
+/**
+ * Rotas Administrativas para compras
+ */
+Route::get('orders', 'Api\Admin\OrdersController@index')->middleware(['auth:api', 'role:admin']);

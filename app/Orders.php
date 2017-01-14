@@ -13,6 +13,6 @@ class Orders extends Model
 
     public function orderItens()
     {
-        return $this->hasMany(OrderItens::class);
+        return $this->hasMany(OrderItens::class, 'order_id', 'id');
     }
 }
