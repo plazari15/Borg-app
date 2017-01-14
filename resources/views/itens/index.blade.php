@@ -18,15 +18,15 @@
                     </li>
                 </ul>
                 <div class="page-toolbar">
-                    <div class="actions ">
-                        <a href="{{ url('dashboard/itens/create') }}"><button class="btn blue">Criar novo Item</button></a>
-                    </div>
+                    {{--<div class="actions ">--}}
+                        {{--<a href="{{ url('dashboard/itens/create') }}"><button class="btn blue">Criar novo Item</button></a>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <!-- END PAGE BAR -->
             <!-- BEGIN PAGE TITLE-->
-            <h1 class="page-title"> Meus Produtos
-                <small>Edite e cadastre novos proutos seus</small>
+            <h1 class="page-title"> Itens
+                <small>Verifique todos os itens publicados no sistema que estão disponíveis para venda</small>
 
             </h1>
             <!-- END PAGE TITLE-->
@@ -42,25 +42,21 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th> Foto</th>
+                                <th> Usuário</th>
                                 <th> Nome</th>
-                                <th>  Medida de referência</th>
+                                <th>  Descrição</th>
                                 <th> Bom para</th>
-                                <th> Tipo</th>
                                 <th> Peso / Quantidade</th>
-                                <th> </th>
                                 <th> </th>
                             </tr>
                             </thead>
                             <tbody>
                                     <tr v-for="itens in results">
-                                        <td><img v-bind:src="[[ itens.photo ]]" width="75"></td>
+                                        <td>[[ itens.user.name ]] </td>
                                         <td>[[ itens.product != null ? itens.product.title : itens.title]]</td>
                                         <td>[[ itens.product != null ? itens.product.measure : 'N/D']]</td>
                                         <td>[[ itens.goodto]]</td>
-                                        <td>[[ itens.type ]]</td>
                                         <td>[[ itens.quantity >- 0 ? itens.quantity : itens.weight ]]</td>
-                                        <td><a v-bind:href="GenerateLink(itens.id)"><i class="fa fa-pencil"></i></a></td>
                                         <td><i @click="DeleteItens(itens.id)" class="fa fa-trash"></i> </td>
                                     </tr>
                             </tbody>
@@ -81,5 +77,5 @@
         var api_token = "{{ Auth::user()->api_token }}";
         var url_edit = "{{ url('dashboard/itens/edit') }}/";
     </script>
-    <script src="{{ URL::asset('js/vue/Itens/Itens.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/vue/Admin/Itens.js') }}" type="text/javascript"></script>
 @endsection

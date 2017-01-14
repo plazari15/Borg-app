@@ -35,3 +35,10 @@ Route::delete('/products/{id}', 'Api\ProductsController@delete')->middleware(['a
  */
 Route::get('myitens', 'Api\ItensController@index')->middleware(['auth:api', 'role:fornecedor']);
 Route::delete('myitens/{id}', 'Api\ItensController@delete')->middleware(['auth:api', 'role:fornecedor']);
+
+
+/**
+ * Rotas Administrativas para Itens
+ */
+Route::get('itens', 'Api\Admin\ItensController@index')->middleware(['auth:api', 'role:admin']);
+Route::delete('itens/{id}', 'Api\Admin\ItensController@delete')->middleware(['auth:api', 'role:admin']);

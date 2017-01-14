@@ -67,8 +67,15 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('dashboard/admin/produtos') }}" class="nav-link nav-toggle">
-                        <i class="icon-user"></i>
+                        <i class="icon-briefcase"></i>
                         <span class="title">Administrar Produtos</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/admin/itens') }}" class="nav-link nav-toggle">
+                        <i class="icon-handbag"></i>
+                        <span class="title">Administrar Itens</span>
                     </a>
                 </li>
             @endif
