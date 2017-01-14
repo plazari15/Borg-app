@@ -1,4 +1,5 @@
 @extends('app.app')
+@section('title', 'Meus Itens')
 @section('content')
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
@@ -48,16 +49,18 @@
                                 <th> Tipo</th>
                                 <th> Peso / Quantidade</th>
                                 <th> </th>
+                                <th> </th>
                             </tr>
                             </thead>
                             <tbody>
                                     <tr v-for="itens in results">
-                                        <td>[[ itens.photo ]]</td>
+                                        <td><img v-bind:src="[[ itens.photo ]]" width="75"></td>
                                         <td>[[ itens.product != null ? itens.product.title : itens.title]]</td>
                                         <td>[[ itens.product != null ? itens.product.measure : 'N/D']]</td>
                                         <td>[[ itens.goodto]]</td>
                                         <td>[[ itens.type ]]</td>
-                                        <td>[[ itens.quantity != null ? itens.quantity : itens.weight ]]</td>
+                                        <td>[[ itens.quantity >- 0 ? itens.quantity : itens.weight ]]</td>
+                                        <td><a v-bind:href="GenerateLink(itens.id)"><i class="fa fa-pencil"></i></a></td>
                                         <td><i @click="DeleteItens(itens.id)" class="fa fa-trash"></i> </td>
                                     </tr>
                             </tbody>
@@ -76,7 +79,7 @@
 @section('vue')
     <script>
         var api_token = "{{ Auth::user()->api_token }}";
-        var url_edit = "{{ url('dashboard/admin/products/edit') }}/";
+        var url_edit = "{{ url('dashboard/itens/edit') }}/";
     </script>
     <script src="{{ URL::asset('js/vue/Itens/Itens.js') }}" type="text/javascript"></script>
 @endsection

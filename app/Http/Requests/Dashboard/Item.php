@@ -23,6 +23,16 @@ class Item extends FormRequest
      */
     public function rules()
     {
+        if($this->id) {
+            return [
+                'title' => 'required',
+                'description' => 'required',
+                'goodto' => 'required|in:venda,processamento',
+                'type' => 'required|in:naturais,industrializados',
+                'weight' => 'required_without_all:quantity',
+                'quantity' => 'required_without_all:weight',
+            ];
+        }
         return [
             'title' => 'required',
             'description' => 'required',

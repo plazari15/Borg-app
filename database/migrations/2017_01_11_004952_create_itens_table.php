@@ -23,8 +23,8 @@ class CreateItensTable extends Migration
             $table->text('description')->nullable();
             $table->enum('goodto', ['venda', 'processamento']);
             $table->enum('type', ['industrializados', 'naturais']);
-            $table->decimal('weight', 10,2)->nullable();
-            $table->integer('quantity')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('quantity')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
