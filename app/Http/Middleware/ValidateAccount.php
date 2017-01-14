@@ -18,7 +18,7 @@ class ValidateAccount
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
-            if (empty(Auth::user()->account->cnpj) && !Request::is('dashboard/account') && !Request::is('logout') ) {
+            if (empty(Auth::user()->account->cnpj) && !Request::is('dashboard/account') && !Request::is('logout') && !Auth::user()->hasRole('admin')) {
                 Session::flash('firstMessage', []);
                 return redirect('dashboard/account');
             }
