@@ -24,7 +24,7 @@ class AccountController extends Controller
      */
     public function index(){
         $user = Auth::user();
-        if(!empty($user)){
+        if(!empty($user->account)){
             return view('account.index', compact('user'));
         }
 
