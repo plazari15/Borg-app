@@ -18,7 +18,7 @@ new Vue({
             return url_edit + id;
         },
         DeleteItens(id){
-            axios.delete('/api/itens/'+id+'?api_token='+this.api_token).then((response) => {
+            axios.delete('/api/myitens/'+id+'?api_token='+this.api_token).then((response) => {
                 toastr.success(response.data.message);
                 this.GetItens();
             });

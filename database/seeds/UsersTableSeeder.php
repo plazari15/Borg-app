@@ -21,6 +21,14 @@ class UsersTableSeeder extends Seeder
 
         $user->assignRole('admin');
 
+        $user->account()->create([
+            'cnpj' => '6564545',
+            'phone' => '554454',
+            'social' => 'isfhjds',
+            'website' => 'www',
+            'cep' => '5564545',
+        ]);
+
         $user = User::create([
             'name' => 'Pedro Fornecedor',
             'email' => 'fornecedor@gmail.com',
@@ -29,5 +37,14 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->assignRole('fornecedor');
+
+        $user->account()->create([
+            'cnpj' => '6564545',
+            'phone' => '554454',
+            'social' => 'isfhjds',
+            'website' => 'www',
+            'cep' => '5564545',
+        ]);
+
     }
 }

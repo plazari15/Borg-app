@@ -28,19 +28,38 @@ class Item extends FormRequest
                 'title' => 'required',
                 'description' => 'required',
                 'goodto' => 'required|in:venda,processamento',
+                'measure' => 'required|in:unidades,bandeija,kilos,gramas,toneladas',
                 'type' => 'required|in:naturais,industrializados',
-                'weight' => 'required_without_all:quantity',
-                'quantity' => 'required_without_all:weight',
+                'weight' => 'required_without_all:quantity|required_if:measure,kilos,gramas,toneladas',
+                'quantity' => 'required_without_all:weight|required_if:measure,unidades,bandeijas',
+                'min_price' => 'required',
+                'max_price' => 'required',
+                'status' => 'required|in:disponivel,breve',
+                'available_date' => 'required_if:status,breve',
             ];
         }
         return [
             'title' => 'required',
             'description' => 'required',
             'goodto' => 'required|in:venda,processamento',
+            'measure' => 'required|in:unidades,bandeija,kilos,gramas,toneladas',
             'type' => 'required|in:naturais,industrializados',
-            'weight' => 'required_without_all:quantity',
-            'quantity' => 'required_without_all:weight',
+            'weight' => 'required_without_all:quantity|required_if:measure,kilos,gramas,toneladas',
+            'quantity' => 'required_without_all:weight|required_if:measure,unidades,bandeija',
+            'min_price' => 'required',
+            'max_price' => 'required',
+            'status' => 'required|in:disponivel,breve',
+            'available_date' => 'required_if:status,breve',
             'foto' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'quantity.required_if' => 'preencha quantidade quando você selecionar a quantidade como ":value"',
+            'weight.required_if' => 'preencha peso quando você selecionar a quantidade como ":value"',
+            'available_date.required_if' => 'preencha data de disponibilidade quando você selecionar a disponibilidade como ":value"'
         ];
     }
 }

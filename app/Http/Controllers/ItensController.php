@@ -4,6 +4,8 @@ namespace borg\Http\Controllers;
 
 use borg\Http\Requests\Dashboard\Item;
 use borg\Itens;
+use borg\Products;
+use borg\ProductsCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +18,19 @@ class ItensController extends Controller
     }
 
     public function create(){
-        return view('itens.create');
+        $categories = ProductsCategory::all();
+        $cat = [];
+        foreach ($categories as $category){
+            $cat[$category->id] = $category->title;
+        }
+
+        $prods = Products::all();
+        $products = [];
+        foreach ($prods as $product){
+            $products[$product->id] = $product->title;
+        }
+
+        return view('itens.create', compact('cat','products'));
     }
 
     public function store(Item $request){

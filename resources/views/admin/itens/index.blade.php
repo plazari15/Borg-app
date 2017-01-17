@@ -46,6 +46,7 @@
                             <thead>
                             <tr>
                                 <th> Foto</th>
+                                <th> Usuário</th>
                                 <th> Nome</th>
                                 <th> Medida</th>
                                 <th> Produtos cadastrados</th>
@@ -54,6 +55,7 @@
                             <tbody>
                                     <tr v-for="product in results">
                                         <td><img v-bind:src="[[ product.photo ]]" width="80"> </td>
+                                        <td>[[ product.user.name ]] </td>
                                         <td>[[ product.title ]] </td>
                                         <td>[[ product.measure ]] </td>
                                         <td>0 </td>
@@ -78,5 +80,5 @@
         var api_token = "{{ Auth::user()->api_token }}";
         var url_edit = "{{ url('dashboard/admin/products/edit') }}/";
     </script>
-    <script src="{{ URL::asset('js/vue/Admin/Products/Products.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('js/vue/Admin/Itens.js') }}" type="text/javascript"></script>
 @endsection

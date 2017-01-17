@@ -8,6 +8,6 @@ use borg\Http\Controllers\Controller;
 class ItensController extends Controller
 {
     public function index(){
-        return view('itens.index');
+        return view('admin.itens.index');
     }
 }

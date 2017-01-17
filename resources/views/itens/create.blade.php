@@ -55,37 +55,75 @@
                             <div class="m-grid-col m-grid-col-md-12 m-grid-col-middle">
                                 <div class="form-body">
                                     {!! Form::open(['url' => 'dashboard/itens/create', 'files' => true]) !!}
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-6">
                                         {{ Form::label('title', 'Nome') }}
                                         {{ Form::text('title', null, ['class' => 'form-control']) }}
                                     </div>
+
+                                    <div class="form-group col-md-6">
+                                        {{ Form::label('type', 'Produto base:') }}
+                                        {{ Form::select('product_id', $products, null,  ['class' => 'form-control']) }}
+                                    </div>
+
 
                                     <div class="form-group col-md-12">
                                         {{ Form::label('description', 'Descrição') }}
                                         {{ Form::textarea('description', null,  ['class' => 'form-control']) }}
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         {{ Form::label('goodto', 'Bom para:') }}
                                         {{ Form::select('goodto', ['venda' => 'Venda', 'processamento' => 'Processamento'], null,  ['class' => 'form-control']) }}
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         {{ Form::label('type', 'Tipo:') }}
                                         {{ Form::select('type', ['naturais' => 'Naturais', 'industrializados' => 'Industrializados'], null,  ['class' => 'form-control']) }}
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
+                                        {{ Form::label('type', 'Categoria:') }}
+                                        {{ Form::select('category_id', $cat, null,  ['class' => 'form-control']) }}
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        {{ Form::label('type', 'Quantidade:') }}
+                                        {{ Form::select('measure', ['unidades' => 'Unidades', 'bandeija' => 'Bandeija', 'kilos' => 'Kilos', 'gramas' => 'Gramas', 'toneladas' => 'Toneladas'], null,  ['class' => 'form-control']) }}
+                                    </div>
+
+                                    <div class="form-group col-md-3">
                                         {{ Form::label('weight', 'Peso:') }}
                                         {{ Form::text('weight', null,  ['class' => 'form-control']) }}
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-3">
                                         {{ Form::label('quantity', 'Quantidade:') }}
                                         {{ Form::text('quantity',  null,  ['class' => 'form-control']) }}
                                     </div>
 
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-3">
+                                        {{ Form::label('min_price', 'Preço Mínimo:') }}
+                                        {{ Form::text('min_price',  null,  ['class' => 'form-control']) }}
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        {{ Form::label('max_price', 'Preço Máximo:') }}
+                                        {{ Form::text('max_price',  null,  ['class' => 'form-control']) }}
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        {{ Form::label('status', 'Disponibilidade:') }}
+                                        {{ Form::select('status', ['disponivel' => 'Disponivel', 'breve' => 'Breve'], null,  ['class' => 'form-control']) }}
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        {{ Form::label('available_date', 'Data de disponibilidade:') }}
+                                        {{ Form::text('available_date',  null,  ['class' => 'form-control']) }}
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
                                         {{ Form::label('foto', 'Foto') }}
                                         {{ Form::file('foto',  ['class' => 'form-control']) }}
                                     </div>

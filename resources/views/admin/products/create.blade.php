@@ -57,11 +57,7 @@
                                                     {{ Form::label('title', 'Nome') }}
                                                     {{ Form::text('title', null, ['class' => 'form-control']) }}
                                                 </div>
-
-                                                <div class="form-group col-md-12">
-                                                    {{ Form::label('measure', 'Tipo de Peso') }}
-                                                    {{ Form::select('measure', ['kilos' => 'Kilo', 'gramas' => 'Gramas',  'toneladas' => 'Toneladas'], null,  ['class' => 'form-control']) }}
-                                                </div>
+                                            
 
                                                 <div class="form-group col-md-12">
                                                     {{ Form::label('foto', 'Foto') }}

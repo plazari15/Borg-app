@@ -16,7 +16,6 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
-            $table->enum('measure', ['unidades','bandeija', 'kilos', 'gramas', 'toneladas', 'mc'])->nullable();
             $table->enum('family', ['familia'])->nullable();
             $table->enum('type', ['tipo'])->nullable();
             $table->enum('group', ['grupo'])->nullable();
