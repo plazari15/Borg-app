@@ -28,3 +28,4 @@ Route::post('products/edit/{id}', 'Admin\AdminProdutos@update');
 Route::get('itens', 'Admin\ItensController@index');
 
 Route::get('order/itens', 'Admin\OrderItensController@index');
+Route::get('order/itens/export/{id}', 'Admin\OrderItensController@export');

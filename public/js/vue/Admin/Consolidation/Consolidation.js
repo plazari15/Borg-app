@@ -17,6 +17,9 @@ new Vue({
         GenerateLink(id){
             return url_edit + id;
         },
+        GenerateExport(id){
+            return url_export + id;
+        },
         UpdateStatus(id){
             $('#status').show();
             axios.put('/api/orders/'+id+'?api_token='+this.api_token, {"status" : status}).then((response) => {

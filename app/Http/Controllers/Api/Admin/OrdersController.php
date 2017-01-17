@@ -14,7 +14,7 @@ class OrdersController extends Controller
     }
 
     public function update($id, Request $request){
-        
+
         $order = Orders::find($id);
 
         $order->status = $request->status;

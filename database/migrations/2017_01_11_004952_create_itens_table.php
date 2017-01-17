@@ -25,6 +25,7 @@ class CreateItensTable extends Migration
             $table->enum('type', ['industrializados', 'naturais']);
             $table->string('weight')->nullable();
             $table->string('quantity')->nullable();
+            $table->decimal('price', 10,2)->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();

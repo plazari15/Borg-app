@@ -51,6 +51,7 @@
                                 <th> Qtd. Itens</th>
                                 <th> Status</th>
                                 <th> Atualizar Status</th>
+                                <th> </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -70,6 +71,7 @@
                                                 <option value="enviado">Enviado</option>
                                             </select> <i class="fa fa-spinner fa-spin" id="status" style="display: none;" aria-hidden="true"></i></td>
                                         <td><a v-bind:href="GenerateLink(order.id)">Editar</a></td>
+                                        <td><a v-bind:href="GenerateExport(order.id)">Exportar Pedido</a></td>
                                         <td><i class="fa fa-trash" @click="DeleteProduct(order.id)"></i></td>
                                     </tr>
                             </tbody>
@@ -89,6 +91,7 @@
     <script>
         var api_token = "{{ Auth::user()->api_token }}";
         var url_edit = "{{ url('dashboard/admin/products/edit') }}/";
+        var url_export = "{{ url('dashboard/admin/order/itens/export') }}/";
     </script>
     <script src="{{ URL::asset('js/vue/Admin/Consolidation/Consolidation.js') }}" type="text/javascript"></script>
 @endsection

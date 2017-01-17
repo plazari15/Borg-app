@@ -20,6 +20,7 @@ class CreateOrderItensTable extends Migration
             $table->integer('itens_id')->unsigned();
             $table->foreign('itens_id')->references('id')->on('itens');
             $table->integer('quantity');
+            $table->decimal('price', 10,2)->nullable();
             $table->timestamps();
         });
     }
