@@ -12,4 +12,15 @@ class OrdersController extends Controller
     {
         return Orders::with('user', 'orderItens')->get();
     }
+
+    public function update($id, Request $request){
+        
+        $order = Orders::find($id);
+
+        $order->status = $request->status;
+
+        $order->save();
+
+        return response()->json(['message' => 'Status do pedido atualizado com sucesso'], 200);
+    }
 }

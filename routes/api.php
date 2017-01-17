@@ -47,3 +47,4 @@ Route::delete('itens/{id}', 'Api\Admin\ItensController@delete')->middleware(['au
  * Rotas Administrativas para compras
  */
 Route::get('orders', 'Api\Admin\OrdersController@index')->middleware(['auth:api', 'role:admin']);
+Route::put('orders/{id}', 'Api\Admin\OrdersController@update')->middleware(['auth:api', 'role:admin']);

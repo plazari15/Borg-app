@@ -17,8 +17,16 @@ new Vue({
         GenerateLink(id){
             return url_edit + id;
         },
+        UpdateStatus(id){
+            $('#status').show();
+            axios.put('/api/orders/'+id+'?api_token='+this.api_token, {"status" : status}).then((response) => {
+                toastr.success(response.data.message);
+            $('#status').hide();
+                this.GetOrders();
+        });
+        },
         DeleteProduct(id){
-            axios.delete('/api/products/'+id+'?api_token='+this.api_token).then((response) => {
+            axios.delete('/api/orders/'+id+'?api_token='+this.api_token).then((response) => {
                 toastr.success(response.data.message);
                 this.GetOrders();
             });

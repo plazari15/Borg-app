@@ -26,3 +26,5 @@ Route::post('products/edit/{id}', 'Admin\AdminProdutos@update');
  * Itens Admin
  */
 Route::get('itens', 'Admin\ItensController@index');
+
+Route::get('order/itens', 'Admin\OrderItensController@index');
