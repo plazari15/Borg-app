@@ -51,9 +51,22 @@ class ItensController extends Controller
 
     public function edit($id){
         $item = Auth::user()->itens()->where('id', $id)->first();
+        $categories = ProductsCategory::all();
+        $cat = [];
+        $cat[''] = 'Selecione';
+        foreach ($categories as $category){
+            $cat[$category->id] = $category->title;
+        }
+
+        $prods = Products::all();
+        $products = [];
+        $products[''] = 'Selecione';
+        foreach ($prods as $product){
+            $products[$product->id] = $product->title;
+        }
 
         if($item){
-            return view('itens.edit', compact('item'));
+            return view('itens.edit', compact('item', 'products', 'cat'));
         }
 
         Session::flash('flash_message', 'Erro ao localizar o item');

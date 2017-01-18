@@ -56,6 +56,7 @@
                                         <td>[[ itens.goodto]]</td>
                                         <td>[[ itens.quantity >- 0 ? itens.quantity : itens.weight ]] [[ itens.measure]]</td>
                                         <td><i @click="DeleteItens(itens.id)" class="fa fa-trash"></i> </td>
+                                        <td><a v-bind:href="GenerateLink(itens.id)"><i @click="" class="fa fa-pencil"></i> </a></td>
                                     </tr>
                             </tbody>
                         </table>
