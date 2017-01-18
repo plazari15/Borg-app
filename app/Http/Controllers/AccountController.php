@@ -6,6 +6,7 @@ use borg\Account;
 use borg\Http\Requests\AccountRequest;
 use borg\Http\Requests\PasswordRequest;
 use borg\Services\RenewUserToken;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +46,8 @@ class AccountController extends Controller
                 $request->merge(['certificate' => $certificado]);
             }
 
+            $request->merge(['area' => json_encode($request->area)]);
+
             $account = Account::firstOrCreate(['user_id' => Auth::user()->id]);
 
             if($account) {
@@ -59,6 +62,7 @@ class AccountController extends Controller
 
             Session::flash('success', 'Dados Atualizados com Sucesso.');
         }catch(Exception $e){
+            Debugbar::addException($e);
             Session::flash('error', 'Ocorreu um erro, tente novamente.');
         }
 

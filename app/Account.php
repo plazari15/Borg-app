@@ -29,6 +29,10 @@ class Account extends Model
         'accountstatus'
     ];
 
+    protected $casts = [
+        'area' => 'array'
+    ];
+
 
     public function user(){
         return $this->belongsTo(User::class);
