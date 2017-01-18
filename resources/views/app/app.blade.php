@@ -13,7 +13,12 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="BORG - Brasil Organico" name="description" />
     <meta content="" name="author" />
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE FIRST SCRIPTS -->
+    <script src="{{ URL::asset('assets/global/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
+    <!-- END PAGE FIRST SCRIPTS -->
+    <!-- BEGIN PAGE TOP STYLES -->
+    <link href="{{ URL::asset('assets/global/plugins/pace/themes/pace-theme-flash.css') }}" rel="stylesheet" type="text/css" />
+    <!-- END PAGE TOP STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
