@@ -40,6 +40,30 @@ class ItensController extends Controller
                 $request->merge(['photo' => $foto]);
             }
 
+            if(!$request->has('product_id')){
+                $request->merge(['product_id' => null]);
+            }
+
+            if(!$request->has('category_id')){
+                $request->merge(['category_id' => null]);
+            }
+
+            if(!$request->has('weight')){
+                $request->merge(['weight' => null]);
+            }
+
+            if(!$request->has('quantity')){
+                $request->merge(['quantity' => null]);
+            }
+
+            if(!$request->has('available_date')){
+                $request->merge(['available_date' => null]);
+            }
+            if($request->hasFile('foto')){
+                $foto = $request->foto->store('itens', 'uploads');
+                $request->merge(['photo' => $foto]);
+            }
+
             Auth::user()->itens()->create($request->all());
 
             Session::flash('flash_message', 'Cadastro realizado com sucesso');
