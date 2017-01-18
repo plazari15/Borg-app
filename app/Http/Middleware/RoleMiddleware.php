@@ -21,7 +21,7 @@ class RoleMiddleware
         }
 
         if (! $request->user()->hasRole($role)) {
-            abort(403);
+            abort(403, 'Você não tem permissão');
         }
 
         return $next($request);

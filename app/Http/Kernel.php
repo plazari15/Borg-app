@@ -2,6 +2,7 @@
 
 namespace borg\Http;
 
+use borg\Http\Middleware\contaBloqueada;
 use borg\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use ValidateAccount;
@@ -33,6 +34,7 @@ class Kernel extends HttpKernel
             \borg\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
+
         ],
 
         'api' => [
@@ -57,5 +59,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'role' => \borg\Http\Middleware\RoleMiddleware::class,
         'account' => \borg\Http\Middleware\ValidateAccount::class,
+        'status' => \borg\Http\Middleware\contaBloqueada::class,
     ];
 }

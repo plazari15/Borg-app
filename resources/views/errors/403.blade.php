@@ -59,7 +59,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <img src="{{ URL::asset('uploads/'.Auth::user()->account->logo) }}" class="lock-avatar"> </div>
             <div class="lock-form pull-left">
                 <h4>{{ Auth::user()->name }}</h4>
-                <p class="font-white">Clique no botão abaixo para voltar!</p>
+                <p class="font-white">{{ $exception->getMessage() }}<br>
+                </p>
                 <div class="form-actions"><a href="{{ url()->previous() }}">
                     <button class="btn red uppercase">Voltar</button></a>
                 </div>

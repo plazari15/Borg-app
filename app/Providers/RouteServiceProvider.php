@@ -52,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::group([
-            'middleware' => ['web', 'account'],
+            'middleware' => ['web', 'account', 'status'],
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/web.php');
@@ -66,7 +66,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::group([
-            'middleware' => ['web', 'account'],
+            'middleware' => ['web', 'account', 'status'],
             'namespace' => $this->namespace,
             'prefix' => 'dashboard'
         ], function ($router) {
