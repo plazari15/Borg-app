@@ -12,7 +12,7 @@
 Route::get('account/{status}', 'Admin\Accounts@lists')->where('status', '[A-Za-z]+');;
 Route::get('account/{id}', 'Admin\Accounts@edit')->where('id', '[0-9]+');;
 Route::post('account/{id}', 'Admin\Accounts@update');
-
+//fdksn
 /**
  * Visualizar Produtos
  */
