@@ -22,14 +22,14 @@
                 </ul>
                 <div class="page-toolbar">
                     <div class="actions ">
-                        <a href="{{ url('dashboard/admin/produtos/create') }}"><button class="btn blue">Criar novo produto</button></a>
+{{--                        <a href="{{ url('dashboard/admin/produtos/create') }}"><button class="btn blue">Criar novo produto</button></a>--}}
                     </div>
                 </div>
             </div>
             <!-- END PAGE BAR -->
             <!-- BEGIN PAGE TITLE-->
             <h1 class="page-title"> Listagem de produtos
-                <small>Esta listagem exibe os produtos pré-cadastrados no sistema. </small>
+                <small>Esta listagem exibe os itens cadastrados no sistema. que estão disponíveis no mercado </small>
 
             </h1>
             <!-- END PAGE TITLE-->
@@ -78,7 +78,7 @@
 @section('vue')
     <script>
         var api_token = "{{ Auth::user()->api_token }}";
-        var url_edit = "{{ url('dashboard/admin/products/edit') }}/";
+        var url_edit = "{{ url('dashboard/admin/itens/') }}/";
     </script>
     <script src="{{ URL::asset('js/vue/Admin/Itens.js') }}" type="text/javascript"></script>
 @endsection

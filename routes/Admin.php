@@ -26,6 +26,7 @@ Route::post('products/edit/{id}', 'Admin\AdminProdutos@update');
  * Itens Admin
  */
 Route::get('itens', 'Admin\ItensController@index');
+Route::get('itens/{id}', 'Admin\ItensController@view');
 
 Route::get('order/itens', 'Admin\OrderItensController@index');
 Route::get('order/itens/export/{id}', 'Admin\OrderItensController@export');
