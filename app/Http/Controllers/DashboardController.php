@@ -26,4 +26,12 @@ class DashboardController extends Controller
     {
         return view('dashboard.index');
     }
+
+
+    /**
+     * ReadNoty
+     */
+    public function readNoty($id){
+        
+    }
 }

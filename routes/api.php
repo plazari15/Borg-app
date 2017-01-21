@@ -17,6 +17,8 @@ Route::get('/token/{id}', function ($id) {
     return \borg\User::find($id)->api_token;
 });
 
+Route::put('/noty/{id}', 'DashboardController@readNoty');
+
 /**
  * Rotas para a administração de usuários!
  */

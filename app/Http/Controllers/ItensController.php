@@ -4,10 +4,13 @@ namespace borg\Http\Controllers;
 
 use borg\Http\Requests\Dashboard\Item;
 use borg\Itens;
+use borg\Notifications\NewItenCreated;
 use borg\Products;
 use borg\ProductsCategory;
+use borg\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
 use League\Flysystem\Exception;
 
@@ -64,8 +67,8 @@ class ItensController extends Controller
                 $request->merge(['photo' => $foto]);
             }
 
-            Auth::user()->itens()->create($request->all());
-
+            $itens = Auth::user()->itens()->create($request->all());
+            Notification::send(User::find(1), new NewItenCreated($itens));
             Session::flash('flash_message', 'Cadastro realizado com sucesso');
         }catch (Exception $e){
             Session::flash('flash_message', 'Erro ao cadastrar');

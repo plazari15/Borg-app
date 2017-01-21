@@ -41,6 +41,8 @@ $app->singleton(
     borg\Exceptions\Handler::class
 );
 
+\Carbon\Carbon::setLocale('pt_BR');
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
