@@ -17,7 +17,7 @@ class contaBloqueada
     public function handle($request, Closure $next)
     {
         if(!Auth::guest() && !empty(Auth::user()->account->cnpj)){
-            if(Auth::user()->account->status == 0){
+            if(Auth::user()->account->status == 0 && !Auth::user()->hasRole('admin')){
                 abort(403, 'Sua conta está suspensa ou inativa!');
             }
         }

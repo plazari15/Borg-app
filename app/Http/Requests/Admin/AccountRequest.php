@@ -44,6 +44,7 @@ class AccountRequest extends FormRequest
 
         if(empty($account->cnpj) OR $account->cnpj != $this->cnpj){
             $this->rules['cnpj'] = ['required', 'max:20', 'unique:accounts'];
+            $this->rules['certificado'] = ['required_if:occupation,fornecedor'];
         }else{
             $this->rules['cnpj'] = ['required', 'max:20'];
         }
@@ -54,7 +55,8 @@ class AccountRequest extends FormRequest
     public function messages()
     {
         return [
-            'social.required' => 'O campo razão social é obrigatório'
+            'social.required' => 'O campo razão social é obrigatório',
+            'certificdo.required' => 'O campo de certificado é obrigatório'
         ];
     }
 }

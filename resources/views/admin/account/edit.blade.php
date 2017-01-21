@@ -133,14 +133,16 @@
                                         <h3>Arquivos referentes a sua empresa</h3>
 
                                         <div class="form-group col-md-12">
+                                            <h4>Logomarca</h4>
                                             @if($account->logo)
-                                               <img src="{{ url('uploads/'.$account->logo) }}">
+                                               <img src="{{ url('uploads/'.$account->logo) }}" width="150">
                                             @else
                                                 <div class="alert alert-info">Usuário não enviou uma logomarca</div>
                                             @endif
                                         </div>
 
                                         <div class="form-group col-md-12">
+                                            <h4>Certificado de Produtos Organicos</h4>
                                             @if($account->certificate)
                                                 <a href="{{ url('uploads/'.$account->certificate) }}" target="_blank">Clique para visualizar o certificado</a>
                                             @else
