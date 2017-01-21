@@ -30,17 +30,21 @@ class AccountRequest extends FormRequest
 
         $this->rules['name'] = ['required'];
         $this->rules['email'] = ['required', 'email'];
-        $this->rules['social'] = ['required'];
-        $this->rules['website'] = ['url'];
-        $this->rules['phone'] = ['required'];
+        //$this->rules['social'] = ['required'];
+//        $this->rules['website'] = ['url'];
+//        $this->rules['phone'] = ['required'];
         $this->rules['occupation'] = ['required', 'in:cooperativa,fornecedor,comprador'];
-        $this->rules['cep'] = ['required'];
-        $this->rules['address'] = ['required'];
-        $this->rules['number'] = ['required'];
-        $this->rules['district'] = ['required'];
-        $this->rules['city'] = ['required'];
-        $this->rules['state'] = ['required'];
-        $this->rules['country'] = ['required'];
+//        $this->rules['cep'] = ['required'];
+//        $this->rules['address'] = ['required'];
+//        $this->rules['number'] = ['required'];
+//        $this->rules['district'] = ['required'];
+//        $this->rules['city'] = ['required'];
+//        $this->rules['state'] = ['required'];
+//        $this->rules['country'] = ['required'];
+
+        //Se ele for comprador CNPJ
+
+        //Se ele for comprador e vendedor CNPJ + Certificado de Produtor Orgânico.
 
         if(empty($account->cnpj) OR $account->cnpj != $this->cnpj){
             $this->rules['cnpj'] = ['required', 'max:20', 'unique:accounts'];

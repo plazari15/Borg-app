@@ -32,6 +32,6 @@ class DashboardController extends Controller
      * ReadNoty
      */
     public function readNoty($id){
-        
+        //
     }
 }
