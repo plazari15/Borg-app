@@ -73,23 +73,10 @@
             </label>
             <a href="javascript:;" id="forget-password" class="forget-password">Esqueceu a senha?</a>
         </div>
-        <div class="login-options">
-            <h4>Ou via</h4>
-            <ul class="social-icons">
-                <li>
-                    <a class="social-icon-color facebook" data-original-title="facebook" href="javascript:;"></a>
-                </li>
-                <li>
-                    <a class="social-icon-color googleplus" data-original-title="Goole Plus" href="javascript:;"></a>
-                </li>
-                <li>
-                    <a class="social-icon-color linkedin" data-original-title="Linkedin" href="javascript:;"></a>
-                </li>
-            </ul>
-        </div>
         <div class="create-account">
             <p>
-                <a href="javascript:;" id="register-btn" class="uppercase">Criar minha conta</a>
+                {{--<a href="javascript:;" id="register-btn" class="uppercase">Criar minha conta</a>--}}
+                <a href="{{ url('/') }}" class="uppercase">VOLTAR AO SITE</a>
             </p>
         </div>
     </form>

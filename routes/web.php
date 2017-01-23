@@ -10,9 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/', function (){
-    return redirect('login');
-});
+Route::get('/', 'web\homeController@index');
 
 Route::get('/dashboard', 'DashboardController@index');
 
