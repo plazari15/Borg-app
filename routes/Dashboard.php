@@ -5,3 +5,5 @@ Route::get('itens/create', 'ItensController@create');
 Route::post('itens/create', 'ItensController@store');
 Route::get('itens/edit/{id}', 'ItensController@edit');
 Route::post('itens/edit/{id}', 'ItensController@update');
+
+Route::get('mercado', 'Dashboard\MarketController@index');

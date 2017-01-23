@@ -101,6 +101,13 @@
                         <span class="title">Leilão</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/mercado') }}" class="nav-link nav-toggle">
+                        <i class="icon-basket"></i>
+                        <span class="title">Mercado</span>
+                    </a>
+                </li>
             @endif
 
             @if(Auth::user()->hasRole(['comprador']))
@@ -115,6 +122,13 @@
                     <a href="{{ url('dashboard/itens') }}" class="nav-link nav-toggle">
                         <i class="icon-basket"></i>
                         <span class="title">Leilão</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('dashboard/mercado') }}" class="nav-link nav-toggle">
+                        <i class="icon-basket"></i>
+                        <span class="title">Mercado</span>
                     </a>
                 </li>
             @endif
