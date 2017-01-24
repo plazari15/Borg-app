@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollumProductDescription extends Migration
+class CreateColumDescriptionToProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateCollumProductDescription extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->text('description');
+            $table->text('description')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class CreateCollumProductDescription extends Migration
      */
     public function down()
     {
-        Schema::table('product', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('description');
         });
     }

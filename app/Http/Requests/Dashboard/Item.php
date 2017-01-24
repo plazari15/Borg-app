@@ -32,8 +32,7 @@ class Item extends FormRequest
                 'type' => 'required|in:naturais,industrializados',
                 'weight' => 'required_without_all:quantity|required_if:measure,kilos,gramas,toneladas',
                 'quantity' => 'required_without_all:weight|required_if:measure,unidades,bandeijas',
-                'min_price' => 'required',
-                'max_price' => 'required',
+                'price' => 'required',
                 'status' => 'required|in:disponivel,breve',
                 'available_date' => 'required_if:status,breve',
             ];
@@ -46,8 +45,7 @@ class Item extends FormRequest
             'type' => 'required|in:naturais,industrializados',
             'weight' => 'required_without_all:quantity|required_if:measure,kilos,gramas,toneladas',
             'quantity' => 'required_without_all:weight|required_if:measure,unidades,bandeija',
-            'min_price' => 'required',
-            'max_price' => 'required',
+            'price' => 'required',
             'status' => 'required|in:disponivel,breve',
             'available_date' => 'required_if:status,breve',
             'foto' => 'required'

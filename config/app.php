@@ -172,6 +172,7 @@ return [
         Spatie\UptimeMonitor\UptimeMonitorServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -183,6 +184,7 @@ return [
         borg\Providers\RouteServiceProvider::class,
         borg\Providers\PasswordRequest::class,
         \borg\Providers\CreateNewToken::class,
+
 
     ],
 
@@ -235,7 +237,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

@@ -57,6 +57,11 @@
                                                     {{ Form::label('title', 'Nome') }}
                                                     {{ Form::text('title', null, ['class' => 'form-control']) }}
                                                 </div>
+
+                                                <div class="form-group col-md-12">
+                                                    {{ Form::label('title', 'Descrição') }}
+                                                    {{ Form::textarea('description', null, ['class' => 'form-control']) }}
+                                                </div>
                                             
 
                                                 <div class="form-group col-md-12">

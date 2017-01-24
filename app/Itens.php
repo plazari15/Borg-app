@@ -27,6 +27,7 @@ class Itens extends Model
         'quantity',
         'photo',
         'status',
+        'price',
         'available_date'
     ];
 
@@ -45,6 +46,10 @@ class Itens extends Model
 
     public function getPhotoAttribute($value){
         return URL::asset('uploads/'.$value);
+    }
+
+    public function getAvailableDateAttribute($value){
+        return Carbon::parse($value)->format('d/m/Y');
     }
 
     public function setAvailableDateAttribute($value)

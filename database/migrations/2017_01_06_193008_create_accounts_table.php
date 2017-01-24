@@ -21,7 +21,7 @@ class CreateAccountsTable extends Migration
             $table->string('social')->nullable();
             $table->string('website')->nullable();
             $table->enum('occupation', ['fornecedor', 'comprador', 'cooperativa'])->nullable();
-            $table->longText('area')->nullable()a;
+            $table->longText('area')->nullable();
             $table->string('cep')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();

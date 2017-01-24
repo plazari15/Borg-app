@@ -102,14 +102,8 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        {{ Form::label('min_price', 'Preço Mínimo:') }}
-                                        {{ Form::text('min_price',  null,  ['class' => 'form-control']) }}
-                                    </div>
-
-
-                                    <div class="form-group col-md-3">
-                                        {{ Form::label('max_price', 'Preço Máximo:') }}
-                                        {{ Form::text('max_price',  null,  ['class' => 'form-control']) }}
+                                        {{ Form::label('price', 'Preço:') }}
+                                        {{ Form::text('price',  null,  ['class' => 'form-control']) }}
                                     </div>
 
                                     <div class="form-group col-md-3">

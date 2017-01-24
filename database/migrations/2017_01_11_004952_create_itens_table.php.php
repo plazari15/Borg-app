@@ -28,8 +28,7 @@ class CreateItensTable extends Migration
             $table->enum('measure', ['unidades', 'bandeija', 'kilos', 'gramas', 'toneladas', 'mc'])->nullable();
             $table->string('weight')->nullable();
             $table->string('quantity')->nullable();
-            $table->decimal('min_price', 10,2)->nullable();
-            $table->decimal('max_price', 10,2)->nullable();
+            $table->decimal('price', 10,2)->nullable();
             $table->enum('status', ['disponivel', 'breve'])->nullable();
             $table->date('available_date')->nullable();
             $table->string('photo')->nullable();

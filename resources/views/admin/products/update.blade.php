@@ -64,6 +64,11 @@
                                                 </div>
 
                                                 <div class="form-group col-md-12">
+                                                    {{ Form::label('title', 'Descrição') }}
+                                                    {{ Form::textarea('description', $product->description, ['class' => 'form-control']) }}
+                                                </div>
+
+                                                <div class="form-group col-md-12">
                                                     {{ Form::label('foto', 'Foto') }}
                                                     {{ Form::file('foto',  ['class' => 'form-control']) }}
                                                 </div>

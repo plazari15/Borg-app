@@ -23,12 +23,14 @@ class ItensController extends Controller
     public function create(){
         $categories = ProductsCategory::all();
         $cat = [];
+        $cat[''] = 'Selecione';
         foreach ($categories as $category){
             $cat[$category->id] = $category->title;
         }
 
         $prods = Products::all();
         $products = [];
+        $products[''] = 'Selecione';
         foreach ($prods as $product){
             $products[$product->id] = $product->title;
         }

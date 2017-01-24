@@ -18,7 +18,7 @@
                     </li>
                 </ul>
                 <div class="page-toolbar">
-                    <!-- Aqui pode ir algo que queremos na lateral -->
+                    <a href="{{ url('dashboard/mercado/cart') }}"><button class="btn blue"><i class="fa fa-shopping-cart"></i>  Ver Carrinho </button></a>
                 </div>
             </div>
             <!-- END PAGE BAR -->
@@ -68,7 +68,9 @@
                                                 </div>
                                                 <div class="mt-card-content">
                                                     <h3 class="mt-card-name">{{ $item->product->title ?? $item->title }}</h3>
-                                                    <p class="mt-card-desc font-grey-mint">{{ $item->product->description ?? $item->description }}</p>
+                                                    <p class="mt-card-desc font-grey-mint">{{ str_limit( ($item->product->description ?? $item->description) , 80) }}</p>
+
+
                                                 </div>
                                             </div>
                                         </a>

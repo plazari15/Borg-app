@@ -11,6 +11,7 @@ class Products extends Model
         'type',
         'family',
         'group',
+        'description',
         'photo'
     ];
 

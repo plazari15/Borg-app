@@ -20,4 +20,11 @@ class MarketController extends Controller
 
         return view('market.index', compact('itens'));
     }
+
+    public function itemView($id)
+    {
+        $item = Itens::find($id);
+
+        return view('market.item.view', compact('item'));
+    }
 }

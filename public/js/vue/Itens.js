@@ -10,7 +10,9 @@ new Vue({
     },
     methods : {
         GetItens(){
+            App.startPageLoading({message: 'Aguarde...'});
             axios.get('/api/myitens/?api_token='+this.api_token).then((response) => {
+                App.stopPageLoading();
                this.results = response.data;
             });
         },
