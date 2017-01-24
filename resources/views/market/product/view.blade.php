@@ -62,7 +62,6 @@
                                             <a href="{{ url('dashboard/mercado/'.$itens->user->account->id) }}">
                                                 <img src="/uploads/{{ $itens->user->account->logo }}" width="50">
                                             </a>
-
                                         @endforeach
                                     </div>
 
@@ -72,18 +71,47 @@
                                         <h2>R$ {{ min($prices) }} ~ R$ {{ max($prices) }} </h2>
                                     </div>
 
-                                    <div class="col-md-3" style="margin-top: 3%; margin-left: 1%;">
-                                        <form action="{{ url('dashboard/mercado/add') }}" method="post">
+                                    <div class="col-md-6" style="margin-top: 3%; margin-left: 1%;">
+                                        <form action="{{ url('dashboard/mercado/add/product') }}" method="post">
                                             {{ csrf_field() }}
-                                            <input type="hidden" name="item_id" value="{{ $product->id }}">
-                                            <input type="number" class="form-control" name="qtd" placeholder="quantidade" min="0" max="">
-                                            <button type="submit" class="btn blue btn-lg btn-block" style="margin-top: 3%;">COTAR</button>
+                                            <div class="col-md-4">
+                                                <select name="program" class="form-control">
+                                                    <option value="">Programação</option>
+                                                    <option value="unique">Compra Única</option>
+                                                    <option value="weekly">Compra Semanal</option>
+                                                    <option value="biweekly">Compra Quinzenal</option>
+                                                    <option value="monthly">Compra Mensal</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+
+                                                <select name="fornecedor" class="form-control" @change="GetItens(fornecedor)" v-model="fornecedor">
+                                                    <option value="">Fornecedor</option>
+                                                    @foreach($product->itens as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->user->account->social }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="hidden" name="product_id" v-bind:value="[[ results.id ]]">
+                                                <input type="number" class="form-control" name="qtd" placeholder="quantidade" min="0" max="[[ results.max ]]">
+                                                <button type="submit" class="btn blue btn-lg btn-block" style="margin-top: 3%;">COTAR</button>
+                                            </div>
                                         </form>
                                     </div>
 
                                 </div>
                                 <div class="col-md-12">
-                                    <h3>{{ $product->description }}</h3>
+                                    <div class="col-md-6">
+                                        <h3>Informações sobre o produtor:</h3>
+                                        <p>Disponibilidade do Item: [[ results.disponibilidade ]] [[ results.data ]]</p>
+                                        <p>Fornecedor: [[ results.fornecedor ]]</p>
+                                        <p>Valor Unitário: [[ results.price ]]</p>
+                                        <p>Total Disponível: [[ results.weight ]]</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h3>{{ $product->description }}</h3>
+                                    </div>
                                 </div>
                         </div>
 
@@ -110,5 +138,8 @@
 @endsection
 
 @section('noty')
-    <script src="{{ URL::asset('js/broadcast/Noty.js') }}" type="text/javascript"></script>
+    <script>
+        var api_token = "{{ Auth::user()->api_token }}";
+    </script>
+    <script src="{{ URL::asset('js/vue/Product.js') }}" type="text/javascript"></script>
 @endsection

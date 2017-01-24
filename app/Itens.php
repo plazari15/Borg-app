@@ -49,7 +49,12 @@ class Itens extends Model
     }
 
     public function getAvailableDateAttribute($value){
-        return Carbon::parse($value)->format('d/m/Y');
+        if(!empty($value)){
+            return Carbon::parse($value)->format('d/m/Y');
+        }else{
+            return null;
+        }
+
     }
 
     public function setAvailableDateAttribute($value)

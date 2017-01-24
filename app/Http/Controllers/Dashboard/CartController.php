@@ -30,4 +30,9 @@ class CartController extends Controller
 
         return back();
     }
+
+    public function addProduct(Request $request){
+        
+        dd($request->all());
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace borg\Http\Controllers\Api\Admin;
 
+use borg\Account;
 use borg\Itens;
 use borg\Notifications\YourItenHasBeenDeleted;
 use Carbon\Carbon;
@@ -26,5 +27,21 @@ class ItensController extends Controller
             dd('erro');
         }
         return response()->json(['code' => 200, 'message' => 'O item foi deletado e uma notificação enviada ao usuário.']);
+    }
+
+    public function getItem($id)
+    {
+        $itens = Itens::find($id);
+        $accounts = Account::where('user_id', $itens->user_id)->first();
+
+        return response()->json([
+            'id' => $itens->id,
+            'fornecedor' => $accounts->social,
+            'disponibilidade' => $itens->status,
+            'data' => $itens->available_date,
+            'price' => 'R$ ' . $itens->price,
+            'weight' => 'até ' . ($itens->weight ?? $itens->quantity) . ' ' . $itens->measure,
+            'max' => ($itens->weight ?? $itens->quantity)
+        ]);
     }
 }

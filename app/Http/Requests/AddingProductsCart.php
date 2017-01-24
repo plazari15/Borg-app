@@ -28,10 +28,13 @@ class AddingProductsCart extends FormRequest
     {
         $item = Itens::find($this->item_id);
         $this->itens = $item;
-        return [
-            "item_id" => "required|numeric",
-            "qtd" => "required|numeric|between:0,{$item->quantity}"
-        ];
+        if(!empty($item->product_id)){
+            return [
+                "item_id" => "required|numeric",
+                "qtd" => "required|numeric|between:0,{$item->quantity}"
+            ];
+        }
+
     }
 
     public function messages()
