@@ -3,6 +3,7 @@
 namespace borg\Http\Controllers\Dashboard;
 
 use borg\Itens;
+use borg\Products;
 use Illuminate\Http\Request;
 use borg\Http\Controllers\Controller;
 
@@ -26,5 +27,15 @@ class MarketController extends Controller
         $item = Itens::find($id);
 
         return view('market.item.view', compact('item'));
+    }
+
+    public function productView($id)
+    {
+        $product = Products::find($id);
+        $prices = [];
+        foreach ($product->itens as $prod){
+            $prices[] = $prod->price;
+        }
+        return view('market.product.view', compact('product', 'prices'));
     }
 }

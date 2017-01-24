@@ -11,3 +11,4 @@ Route::post('mercado/add', 'Dashboard\CartController@addItem');
 Route::get('mercado/cart', 'Dashboard\CartController@cart');
 Route::get('mercado/delete/{rowId}', 'Dashboard\CartController@cartDelete');
 Route::get('mercado/item/{id}', 'Dashboard\MarketController@itemView');
+Route::get('mercado/produto/{id}', 'Dashboard\MarketController@productView');
