@@ -28,12 +28,10 @@ class AddingProductsCart extends FormRequest
     {
         $item = Itens::find($this->item_id);
         $this->itens = $item;
-        if(!empty($item->product_id)){
-            return [
-                "item_id" => "required|numeric",
-                "qtd" => "required|numeric|between:0,{$item->quantity}"
-            ];
-        }
+        return [
+            "item_id" => "required|numeric",
+            "qtd" => "required|numeric|between:0,{$item->quantity}"
+        ];
 
     }
 
@@ -45,7 +43,7 @@ class AddingProductsCart extends FormRequest
 
 
             "qtd.required" => 'Campo quantidade é obrigatório',
-            "qtd.between" => 'Campo quantidade deve receber um valor entre 0 e '.$this->itens->quantity,
+            "qtd.between" => 'Campo quantidade não pode exceder o máximo',
             "qtd.numeric" => 'Campo quantidade deve receber um valor numérico',
 
         ];

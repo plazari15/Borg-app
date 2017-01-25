@@ -32,7 +32,27 @@ class CartController extends Controller
     }
 
     public function addProduct(Request $request){
-        
-        dd($request->all());
+        $item = Itens::find($request->product_id);
+        $between = ($item->quantity ?? $item->weight);
+        $this->validate($request, [
+            'program' => 'required|in:weekly,monthly,unique,biweekly',
+            'fornecedor' => 'required|numeric',
+            'product_id' => 'required|numeric',
+            'qtd' => "required|integer|between:0,{$between}"
+        ]);
+        $product = [
+            'name' => $item->title,
+            'id' => $item->id,
+            'price' => $item->price,
+            'qty' => $request->qtd,
+            'options' => [
+                'program' => $request->program,
+                'fornecedor' => $request->fornecedor
+            ]
+        ];
+        Cart::add($product);
+
+        Session::flash('success', 'Item adicionado ao carrinho com sucesso! Clique <a href="'.url('dashboard/mercado/cart').'">AQUI</a> para visualizar');
+        return back();
     }
 }
