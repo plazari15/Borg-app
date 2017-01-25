@@ -83,8 +83,9 @@
                                 </div>
 
                                 <div class="col-md-12" style="margin-top: 2%">
-                                    <form action="">
-                                        <button class="btn btn-lg blue btn-block">Finalizar Pedido</button>
+                                    <form action="{{ url('dashboard/mercado/order') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-lg blue btn-block">Finalizar Pedido</button>
                                     </form>
                                 </div>
                             </div>

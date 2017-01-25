@@ -4,6 +4,7 @@ namespace borg\Http\Controllers\Dashboard;
 
 use borg\Itens;
 use borg\Products;
+use borg\Service\Market\CreateOrder;
 use Illuminate\Http\Request;
 use borg\Http\Controllers\Controller;
 
@@ -37,5 +38,11 @@ class MarketController extends Controller
             $prices[] = $prod->price;
         }
         return view('market.product.view', compact('product', 'prices'));
+    }
+
+    public function CreateOrder(Request $request)
+    {
+        return new CreateOrder();
+        dd($request->all());
     }
 }
